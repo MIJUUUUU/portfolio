@@ -33,6 +33,7 @@ const projects = [
     englishTitle: "SKALE · Attendance Anomaly Detection System",
     badge: "대표 프로젝트",
     featured: true,
+    pinned: true,
     meta: ["2025.11", "AI", "Backend", "Data Integration"],
     description:
       "HR·출입·VDI 등 분산된 근태 데이터를 통합하고, 반복적인 이상 행동 패턴을 신속하게 분석할 수 있는 AI 기반 대시보드를 구축했습니다.",
@@ -166,7 +167,8 @@ const projects = [
     slug: "emg-gait-analysis",
     title: "EMG 기반 보행 상태 분석 연구",
     englishTitle: "EMG-based Gait Condition Classification",
-    badge: "데이터 분석",
+    badge: "논문 · 특허",
+    pinned: true,
     meta: [
       "2024.11 ~ 2025.08",
       "Machine Learning",
@@ -331,6 +333,36 @@ const projects = [
     ],
   },
 ];
+
+const getProjectSortDate = (project) => {
+  const dateText = project.meta?.[0] ?? "";
+  const matches = [...dateText.matchAll(/(\d{4})(?:\.(\d{1,2}))?/g)];
+  const latest = matches.at(-1);
+
+  if (!latest) return 0;
+
+  const year = Number(latest[1]);
+  const month = Number(latest[2] ?? 0);
+  return year * 100 + month;
+};
+
+const featuredProjectOrder = new Map([
+  ["attendance-anomaly-detection", 0],
+  ["emg-gait-analysis", 1],
+]);
+
+const projectsByLatest = [...projects].sort((a, b) => {
+  const aFeatured = featuredProjectOrder.get(a.slug);
+  const bFeatured = featuredProjectOrder.get(b.slug);
+
+  if (aFeatured !== undefined || bFeatured !== undefined) {
+    if (aFeatured === undefined) return 1;
+    if (bFeatured === undefined) return -1;
+    return aFeatured - bFeatured;
+  }
+
+  return getProjectSortDate(b) - getProjectSortDate(a);
+});
 
 function AttendanceProjectDetail({ project, onBack }) {
   const dataSources = [
@@ -1552,7 +1584,7 @@ function App() {
         </div>
 
         <div className="project-accordion">
-          {projects.map((project) => {
+          {projectsByLatest.map((project) => {
             const isExpanded = expandedProjects.includes(project.slug);
 
             return (
@@ -1569,6 +1601,9 @@ function App() {
                 >
                   <div className="project-accordion-title">
                     <div>
+                      {project.pinned && (
+                        <span className="project-pinned-badge">PINNED</span>
+                      )}
                       {project.badge && <span>{project.badge}</span>}
                       {project.organization && (
                         <span>{project.organization}</span>
@@ -1581,7 +1616,7 @@ function App() {
                     <span>{project.meta[0]}</span>
                     <span>{project.meta.slice(1, 3).join(" · ")}</span>
                   </div>
-                  <i aria-hidden="true">⌄</i>
+                  <i aria-hidden="true">{isExpanded ? "−" : "+"}</i>
                 </button>
 
                 <div
