@@ -31,7 +31,7 @@ const projects = [
     featured: true,
     meta: ["2025", "AI", "Backend", "Data Integration"],
     description:
-      "HR, Gate, VDI, 비용정산, 업무차량, 주근무지 등 분산된 7개 사내 데이터를 통합해 규칙 기반 탐지 한계를 넘는 이상 근태 탐지 구조를 설계한 프로젝트입니다.",
+      "HR, Gate, VDI, 비용정산, 업무차량, 주근무지 등 분산된 20개 사내 데이터를 통합해 규칙 기반 탐지 한계를 넘는 이상 근태 탐지 구조를 설계한 프로젝트입니다.",
     tags: ["#SpringBoot", "#FastAPI", "#AnomalyDetection", "#4Tier"],
     organization: "SK AX",
     thumbnail: "/images/projects/attendance-ai.png",
@@ -48,7 +48,7 @@ const projects = [
       "FastAPI 기반 AI 서버에서 분류·탐지 추론을 수행하고 PostgreSQL과 연동합니다.",
     ],
     implementation: [
-      "7개 사내 데이터 소스를 사용자 기준으로 정규화하고 프로파일링 구조를 설계했습니다.",
+      "20개 사내 데이터 소스를 사용자 기준으로 정규화하고 프로파일링 구조를 설계했습니다.",
       "Rule-Based 탐지와 AI 패턴 탐지를 함께 배치해 단순 위반과 잠재 패턴을 동시에 보도록 구성했습니다.",
       "대시보드와 리포트까지 연결되는 운영 자동화 흐름을 정리했습니다.",
     ],
@@ -230,6 +230,26 @@ function AttendanceProjectDetail({ project, onBack }) {
     "비용정산 내역",
     "주 근무지 정보",
     "퇴직금 전환 정보",
+  ];
+  const dataSourceInsights = [
+    {
+      title: "기록 기준이 서로 다름",
+      body: "출입은 시간 로그, HR은 인사 정보, 비용정산은 행위 이력처럼 각 데이터의 의미와 기준점이 달라 단순 병합만으로는 해석이 어렵습니다.",
+    },
+    {
+      title: "사원 단위 추적이 끊김",
+      body: "동일 직원의 출입, VDI, OT, 차량 이용 내역이 각각 다른 화면과 파일에 흩어져 있어 한 사람의 근무 흐름을 연속적으로 보기 어렵습니다.",
+    },
+    {
+      title: "이상 판단 맥락이 부족함",
+      body: "지각 여부만으로는 실제 리스크를 설명할 수 없습니다. 주근무지, 야근, 접속 이력까지 함께 보아야 예외인지 패턴인지 판단할 수 있습니다.",
+    },
+  ];
+  const integrationTargets = [
+    "사번 기준 통합 키 정렬",
+    "날짜/시간 포맷 표준화",
+    "조직·직무 단위 프로파일링",
+    "탐지용 특징 벡터 생성",
   ];
   const overviewStats = [
     ["88%", "대기업 근태 솔루션 도입 비율", "IMARC Group의 보고서"],
@@ -517,10 +537,37 @@ function AttendanceProjectDetail({ project, onBack }) {
           <p>문제 분석</p>
           <h2>분산된 데이터 통합 관리의 어려움</h2>
         </div>
+        <p className="case-section-lead">
+          실제 운영 환경에서는 근태가 하나의 기록으로 존재하지 않습니다. 출입, 접속, 초과근무,
+          비용정산, 주근무지처럼 서로 다른 시스템의 데이터를 직원 기준으로 다시 엮어야 비로소
+          “정상 흐름인지, 이상 패턴인지”를 해석할 수 있습니다.
+        </p>
         <div className="data-source-cloud">
           {dataSources.map((source) => (
             <span key={source}>{source}</span>
           ))}
+        </div>
+        <div className="case-data-grid">
+          {dataSourceInsights.map((item) => (
+            <article key={item.title} className="case-data-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="case-data-summary">
+          <div>
+            <p className="case-data-summary-label">통합 시 필요한 기준</p>
+            <div className="case-data-summary-chips">
+              {integrationTargets.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+          <p className="case-data-summary-copy">
+            따라서 SKALE은 단순 조회 화면이 아니라, 분산된 이종 데이터를 동일한 직원 흐름으로
+            재구성하는 데이터 통합 계층이 먼저 필요했습니다.
+          </p>
         </div>
       </section>
 
@@ -605,7 +652,7 @@ function AttendanceProjectDetail({ project, onBack }) {
           <article>
             <strong>01</strong>
             <h3>데이터(Data)</h3>
-            <p>7개 사내 데이터 활용 (HR, Gate, VDI 등)</p>
+            <p>20개 사내 데이터 활용 (HR, Gate, VDI 등)</p>
           </article>
           <article>
             <strong>02</strong>
@@ -905,11 +952,15 @@ function ProjectDetail({ project, onBack }) {
 }
 
 function App() {
+  const isDetailReady = (project) =>
+    project.slug === "attendance-anomaly-detection";
+
   const getProjectFromPath = () => {
     const slug = window.location.pathname.match(
       /^\/projects\/([^/]+)\/?$/,
     )?.[1];
-    return projects.find((project) => project.slug === slug) || null;
+    const project = projects.find((item) => item.slug === slug) || null;
+    return project && isDetailReady(project) ? project : null;
   };
   const [selectedProject, setSelectedProject] = useState(getProjectFromPath);
 
@@ -947,6 +998,7 @@ function App() {
   }, []);
 
   const openProject = (project) => {
+    if (!isDetailReady(project)) return;
     window.history.pushState({}, "", `/projects/${project.slug}`);
     setSelectedProject(project);
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -1146,17 +1198,21 @@ function App() {
         <div className="project-grid">
           {projects.map((project) => (
             <article
-              className={`project-card${project.featured ? " is-featured" : ""}`}
+              className={`project-card${project.featured ? " is-featured" : ""}${isDetailReady(project) ? " is-available" : " is-disabled"}`}
               key={project.slug}
-              tabIndex="0"
-              role="link"
-              onClick={() => openProject(project)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  openProject(project);
-                }
-              }}
+              tabIndex={isDetailReady(project) ? "0" : "-1"}
+              role={isDetailReady(project) ? "link" : undefined}
+              onClick={isDetailReady(project) ? () => openProject(project) : undefined}
+              onKeyDown={
+                isDetailReady(project)
+                  ? (event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openProject(project);
+                      }
+                    }
+                  : undefined
+              }
             >
               <div
                 className={`project-visual${project.thumbnail ? " has-image" : " project-visual-empty"}`}
@@ -1186,8 +1242,10 @@ function App() {
                 <button
                   className="project-link"
                   type="button"
+                  disabled={!isDetailReady(project)}
                   onClick={(event) => {
                     event.stopPropagation();
+                    if (!isDetailReady(project)) return;
                     openProject(project);
                   }}
                 >
