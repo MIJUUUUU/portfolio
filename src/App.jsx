@@ -7,7 +7,11 @@ const experiences = [
   // ["RAG 기반 영어 회화 에이전트 프로젝트", "2025. 10"],
   // ["제조 결함 데이터 분석 프로젝트", "2025. 10"],
   // ["스마트 제조 의사결정 프로젝트", "2025. 09"],
-  ["대한의용생체공학회 논문 게재 · 특허출원", "2025. 08"],
+  [
+    "대한의용생체공학회 논문 게재 · 특허출원",
+    "2025. 08",
+    "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003239062",
+  ],
   ["2025 청년 일경험 지원사업 참여", "2025. 05"],
   ["데이터베이스 조교", "2025. 03"],
   ["Murfy AI 서포터즈", "2025. 02"],
@@ -29,12 +33,12 @@ const projects = [
     englishTitle: "SKALE · Attendance Anomaly Detection System",
     badge: "대표 프로젝트",
     featured: true,
-    meta: ["2025", "AI", "Backend", "Data Integration"],
+    meta: ["2025.11", "AI", "Backend", "Data Integration"],
     description:
-      "HR, Gate, VDI, 비용정산, 업무차량, 주근무지 등 분산된 20개 사내 데이터를 통합해 규칙 기반 탐지 한계를 넘는 이상 근태 탐지 구조를 설계한 프로젝트입니다.",
+      "HR·출입·VDI 등 분산된 근태 데이터를 통합하고, 반복적인 이상 행동 패턴을 신속하게 분석할 수 있는 AI 기반 대시보드를 구축했습니다.",
     tags: ["#SpringBoot", "#FastAPI", "#AnomalyDetection", "#4Tier"],
-    organization: "SK AX",
-    thumbnail: "/images/projects/attendance-ai.png",
+    thumbnail: "/images/projects/근태.png",
+    thumbnailFit: "contain",
     overview:
       "반복 오탐지와 운영 부담이 큰 근태 관리 환경에서, 분산 데이터를 통합하고 Rule-Based와 AI 탐지를 결합해 장기·반복 패턴까지 식별할 수 있는 시스템을 목표로 했습니다.",
     problem: [
@@ -48,27 +52,25 @@ const projects = [
       "FastAPI 기반 AI 서버에서 분류·탐지 추론을 수행하고 PostgreSQL과 연동합니다.",
     ],
     implementation: [
-      "20개 사내 데이터 소스를 사용자 기준으로 정규화하고 프로파일링 구조를 설계했습니다.",
-      "Rule-Based 탐지와 AI 패턴 탐지를 함께 배치해 단순 위반과 잠재 패턴을 동시에 보도록 구성했습니다.",
-      "대시보드와 리포트까지 연결되는 운영 자동화 흐름을 정리했습니다.",
+      "SK AX 윤리경영팀 인터뷰를 바탕으로 근태관리 Pain Point와 요구사항을 분석했습니다.",
+      "PostgreSQL 기반 통합 데이터 구조와 사번·날짜 기준 ERD를 설계했습니다.",
+      "AIOps 기반 이상 패턴 탐지 결과를 한 화면에서 확인하는 통합 대시보드를 구축했습니다.",
     ],
     results: [
-      "분산 데이터 통합 관리 기반을 확보했습니다.",
-      "복합 이상 패턴을 탐지할 수 있는 확장 가능한 구조를 마련했습니다.",
-      "피드백 루프를 반영해 반복 오탐 감소 방향을 제시했습니다.",
+      "여러 시스템에 흩어진 근태 기록을 하나의 화면에서 통합 조회할 수 있게 했습니다.",
+      "반복·복합 이상 행동 패턴을 신속하게 분석할 수 있는 기반을 마련했습니다.",
+      "관리자의 조회와 판단 시간을 줄이는 사용자 중심 업무 흐름을 구현했습니다.",
     ],
   },
   {
     slug: "allink-ai-workspace",
     title: "AI 기반 협업 워크스페이스 올링크",
     englishTitle: "Allink · AI Collaboration Workspace",
-    badge: "최종 프로젝트",
     featured: true,
-    meta: ["2025", "Collaboration", "RAG", "CRDT"],
+    meta: ["2025.10", "Collaboration", "RAG", "CRDT"],
     description:
       "아이디어에서 실행까지 끊기는 협업 흐름을 하나로 연결하기 위해, 실시간 협업과 AI 기반 지식 재생성을 결합한 워크스페이스 프로젝트입니다.",
     tags: ["#CRDT", "#RAG", "#KnowledgeRegeneration", "#Vercel"],
-    thumbnail: "/images/projects/meetingmind.png",
     overview:
       "올링크는 여러 툴과 부서에 흩어진 아이디어, 기획, 실행 흐름을 한 공간으로 모아 협업이 결과로 이어지게 하는 AI 워크스페이스를 목표로 했습니다.",
     problem: [
@@ -97,11 +99,12 @@ const projects = [
     title: "스마트 제조 의사결정 RAG, SKAG",
     englishTitle: "SKAG · Smart Manufacturing Decision RAG",
     featured: true,
-    meta: ["2025", "Manufacturing AI", "RAG", "FAISS"],
+    meta: ["2025.09", "Manufacturing AI", "RAG", "FAISS"],
     description:
-      "MES, ERP, 센서 로그 같은 내부 데이터와 뉴스·규제·물류 이슈 같은 외부 데이터를 함께 검색해 제조 현장의 의사결정을 지원하는 RAG 시스템입니다.",
+      "생산 공정 데이터와 외부 산업·공급망 리스크 정보를 통합해, 단일 질의로 원인과 대응 방안을 확인하는 RAG 기반 제조 의사결정 시스템입니다.",
     tags: ["#RAG", "#FAISS", "#GPT4omini", "#SupplyChain"],
-    thumbnail: "/images/projects/factory-rag.png",
+    thumbnail: "/images/projects/스마트 제조 의사결정.png",
+    thumbnailFit: "contain",
     overview:
       "생산공정 이상과 공급망 리스크를 동시에 반영해, 관리자가 자연어 질문만으로 원인 분석과 대응 방안을 받을 수 있는 제조 의사결정 시스템을 목표로 했습니다.",
     problem: [
@@ -115,21 +118,92 @@ const projects = [
       "FAISS Retriever가 검색한 문서와 SQL 응답을 LLM이 융합해 자연어 답변을 생성합니다.",
     ],
     implementation: [
-      "MES 로그와 외부 뉴스 API를 동시에 모니터링하는 데이터 파이프라인을 설계했습니다.",
-      "내부 공정 데이터와 외부 리스크를 하나의 질의 흐름으로 결합했습니다.",
-      "근거 데이터와 신뢰도 점수를 포함한 답변 구조를 기획했습니다.",
+      "SK하이닉스 MES 담당자 인터뷰를 바탕으로 요구사항과 조회 비효율을 분석했습니다.",
+      "내부 공정 데이터와 외부 산업 정보를 하나의 검색·질의 흐름으로 통합했습니다.",
+      "RAG 기반 의사결정 지원 구조와 예측 가능한 통합 대시보드를 구축했습니다.",
     ],
     results: [
-      "DB 쿼리와 뉴스 검색을 한 번의 RAG 질의로 축약하는 운영 경험을 제안했습니다.",
-      "불량 원인 추적과 대응 방안 생성까지 이어지는 제조 AI 구조를 정리했습니다.",
-      "추후 PDF 리포트, 규제 문서, 매뉴얼까지 확장 가능한 벡터 DB 기반을 확보했습니다.",
+      "단일 질의를 통해 생산 이상 원인과 외부 리스크를 함께 분석할 수 있게 했습니다.",
+      "분산된 제조 정보를 한 화면에서 확인하는 통합 분석 환경을 구현했습니다.",
+      "SK AX SKALA 중간 프로젝트 우수 프로젝트로 선정되었습니다.",
+    ],
+  },
+  {
+    slug: "ai-interview-training",
+    title: "AI 면접 훈련 서비스",
+    englishTitle: "Personalized AI Interview Training Service",
+    featured: true,
+    meta: ["2026.04", "Generative AI", "STT/TTS", "Data Analysis"],
+    thumbnail: "/images/projects/리터뷰.png",
+    thumbnailFit: "contain",
+    description:
+      "회사·직무·경력·자기소개서를 기반으로 면접을 구성하고, 답변과 비언어 데이터를 종합 분석해 개인화된 피드백을 제공하는 AI 면접 훈련 서비스입니다.",
+    tags: ["#OpenAI", "#STT", "#TTS", "#Multimodal"],
+    overview:
+      "단순 질문 생성에서 끝나는 기존 서비스와 달리 실제 면접과 유사한 환경에서 반복 학습하고, 답변 내용과 면접 태도를 함께 개선하는 경험을 목표로 했습니다.",
+    problem: [
+      "개인별 약점 분석과 반복 학습을 지원하는 면접 훈련 구조가 부족했습니다.",
+      "사용자의 답변 내용과 면접 태도를 함께 분석하는 맞춤형 피드백이 필요했습니다.",
+      "실제 면접 환경과 유사한 상호작용형 AI 서비스가 필요했습니다.",
+    ],
+    architecture: [
+      "회사·직무·경력·자기소개서 데이터를 기반으로 개인별 면접 데이터를 구성했습니다.",
+      "STT/TTS와 웹캠·마이크를 연결해 음성 및 비언어 데이터를 수집했습니다.",
+      "OpenAI API 기반 답변 분석 결과와 행동 데이터를 결합해 리포트를 생성했습니다.",
+    ],
+    implementation: [
+      "회사·직무·경력·자기소개서를 반영하는 개인 맞춤형 면접 데이터 구조를 설계했습니다.",
+      "STT/TTS, 웹캠, 마이크 연동을 통해 답변과 비언어 데이터를 수집하는 기능을 구현했습니다.",
+      "답변 텍스트, 시선 안정성, 말속도, Pause를 종합 분석하는 피드백 생성 로직을 구현했습니다.",
+    ],
+    results: [
+      "회사·직무·경력별 개인 맞춤형 AI 면접 훈련 서비스를 구현했습니다.",
+      "답변과 비언어 데이터를 종합 분석해 AI 면접 리포트를 자동 생성했습니다.",
+      "직무별 용어 사전과 ALIAS 보정 로직을 적용해 STT 인식 개선 기반을 마련했습니다.",
+    ],
+  },
+  {
+    slug: "emg-gait-analysis",
+    title: "EMG 기반 보행 상태 분석 연구",
+    englishTitle: "EMG-based Gait Condition Classification",
+    badge: "데이터 분석",
+    meta: [
+      "2024.11 ~ 2025.08",
+      "Machine Learning",
+      "Biomedical Data",
+      "Random Forest",
+    ],
+    description:
+      "하지 근전도(EMG) 신호를 수집·전처리하고 근육 활성 특징을 추출해 보행 상태를 분류한 생체신호 데이터 분석 연구입니다.",
+    tags: ["#EMG", "#RandomForest", "#FeatureExtraction", "#Research"],
+    overview:
+      "육안 관찰에 의존하던 보행 차이를 생체신호 데이터로 정량화하고, 근육 활성 패턴만으로 보행 상태를 구분할 수 있는지 검증했습니다.",
+    problem: [
+      "보행 차이를 객관적이고 정량적으로 분석하기 어려웠습니다.",
+      "생체신호 데이터에 기반한 보행 상태 평가가 필요했습니다.",
+      "보행 분류를 위한 EMG 데이터 활용 연구가 부족했습니다.",
+    ],
+    architecture: [
+      "EMG 데이터 수집 → 이상치 제거 → 전처리 → RMS 특징 추출 → 분류 순서로 분석했습니다.",
+      "하지 근육별 활성 특징을 데이터셋으로 구성했습니다.",
+      "Random Forest 모델을 활용해 보행 상태를 분류했습니다.",
+    ],
+    implementation: [
+      "하지 근전도 센서를 활용해 보행 과정의 EMG 데이터를 직접 수집하고 전처리했습니다.",
+      "이상치를 제거하고 RMS 기반 근육 활성 특징을 추출해 학습 데이터셋을 구축했습니다.",
+      "Random Forest 분류 모델을 개발하고 근육별 활성 패턴을 분석했습니다.",
+    ],
+    results: [
+      "약 95%의 보행 상태 분류 정확도를 달성했습니다.",
+      "표면 근전도 데이터만으로 보행 상태를 분류할 수 있는 가능성을 확인했습니다.",
+      "육안으로 확인하기 어려운 근육 활성 패턴을 발견해 논문 게재와 특허 출원으로 연결했습니다.",
     ],
   },
   {
     slug: "insurance-rag-chatbot",
     title: "RAG 기반 보험 상담 챗봇 비서",
     englishTitle: "Insurance Consultation Chatbot Assistant",
-    meta: ["2024", "RAG", "Spring Boot", "React"],
+    meta: ["2024.09 ~ 2025.06", "RAG", "Spring Boot", "React"],
     description:
       "복잡한 보험 약관과 보장 범위를 쉽게 이해할 수 있도록, 의미 기반 검색과 질문 의도 분석을 결합한 보험 상담 챗봇 프로젝트입니다.",
     tags: ["#PGVector", "#IntentAnalysis", "#OpenAI", "#Recommendation"],
@@ -160,7 +234,10 @@ const projects = [
     slug: "english-conversation-agent",
     title: "RAG 기반 영어 회화 에이전트 AnyVerse",
     englishTitle: "AnyVerse · Real-time Communication Agent",
-    meta: ["2025", "AI Agent", "RAG", "Translation"],
+    meta: ["2025.10", "AI Agent", "RAG", "Translation"],
+    thumbnail: "/images/projects/영어회화.png",
+    thumbnailFit: "contain",
+    thumbnailCrop: "bottom",
     description:
       "줌을 대체하는 회의 도구가 아니라, 회의 중 통번역과 회의 후 학습·리포트 생성까지 이어지는 영어 커뮤니케이션 에이전트 프로젝트입니다.",
     tags: ["#RAG", "#STT", "#ConversationLearning", "#Report"],
@@ -188,10 +265,45 @@ const projects = [
     ],
   },
   {
+    slug: "hwaseong-urban-data-analysis",
+    title: "화성시 도시데이터 공모전",
+    englishTitle: "Hwaseong Urban Data Analysis",
+    badge: "데이터 분석",
+    meta: ["2025", "Urban Data", "NDVI", "Visualization"],
+    thumbnail: "/images/projects/화성도시데이터.png",
+    thumbnailFit: "contain",
+    description:
+      "위성영상과 행정 데이터를 결합해 화성시의 녹지 현황을 분석하고, 정책적 지원이 필요한 지역의 우선순위를 시각화한 도시데이터 프로젝트입니다.",
+    tags: ["#NDVI", "#SpatialData", "#DataVisualization", "#Policy"],
+    overview:
+      "녹지 분포와 환경 부담 지역을 객관적으로 파악하기 어렵고, 도시 정책 수립에 활용할 통합 지표가 부족하다는 문제에서 시작했습니다.",
+    problem: [
+      "녹지 분포와 환경 부담 지역을 객관적으로 비교하기 어려웠습니다.",
+      "도시 정책 수립을 위한 통합 지표와 데이터 기반 우선순위가 부족했습니다.",
+      "행정구역별 환경 취약도를 직관적으로 확인할 수 있는 시각화가 필요했습니다.",
+    ],
+    architecture: [
+      "위성영상 NDVI와 탄소 배출량·인구 등 행정 데이터를 함께 수집했습니다.",
+      "지역별 녹지와 환경 부담 수준을 비교할 수 있도록 녹지 지수를 설계했습니다.",
+      "분석 결과를 지도와 정책 지원 대시보드 형태로 시각화했습니다.",
+    ],
+    implementation: [
+      "위성영상 NDVI와 화성시 행정 데이터를 수집·정제하고 지역 단위로 결합했습니다.",
+      "탄소 배출량과 인구 데이터를 반영한 녹지 우선순위 지표를 설계했습니다.",
+      "지역별 우선순위를 지도에 시각화하고 정책 의사결정 지원 대시보드를 구현했습니다.",
+    ],
+    results: [
+      "데이터를 기반으로 지역별 녹지 조성 우선순위를 도출했습니다.",
+      "환경 취약 지역을 지도에서 직관적으로 식별할 수 있게 했습니다.",
+      "도시 녹지 정책 수립에 활용할 수 있는 객관적인 분석 근거를 제시했습니다.",
+    ],
+  },
+  {
     slug: "manufacturing-defect-analysis",
     title: "제조 결함 데이터 분석 및 분류 전략 수립",
     englishTitle: "Manufacturing Defect Analysis Strategy",
-    meta: ["2025", "Data Analysis", "Feature Engineering", "Manufacturing"],
+    badge: "데이터 분석",
+    meta: ["2025.10", "Data Analysis", "Feature Engineering", "Manufacturing"],
     description:
       "Steel Plates Faults 데이터셋을 기반으로 결함 유형별 특징, 클래스 불균형, 다중공선성을 분석해 향후 자동 분류 모델 설계 근거를 정리한 프로젝트입니다.",
     tags: ["#EDA", "#VIF", "#FeatureSelection", "#Imbalance"],
@@ -328,21 +440,27 @@ function AttendanceProjectDetail({ project, onBack }) {
   const effectRows = [
     {
       leftTitle: "근태·출입·VDI 여러 데이터 분산",
-      leftBody: "서로 다른 형식의 데이터 관리의 어려움 → 모든 데이터를 하나의 서비스에서 관리",
+      leftBody:
+        "서로 다른 형식의 데이터 관리의 어려움 → 모든 데이터를 하나의 서비스에서 관리",
       rightTitle: "휘발성 데이터 (CSV/Excel)",
-      rightBody: "불규칙하게 관리되던 관련 데이터들을 DB 기반으로 전환 → 데이터 유실 방지 & 무결성 확보",
+      rightBody:
+        "불규칙하게 관리되던 관련 데이터들을 DB 기반으로 전환 → 데이터 유실 방지 & 무결성 확보",
     },
     {
       leftTitle: "수동 분석 작업 프로세스",
-      leftBody: "관리자가 수동으로 통합/필터링 절차 진행을 반복 → 사전에 설정한 규칙에 따라 자동으로 작업 수행",
+      leftBody:
+        "관리자가 수동으로 통합/필터링 절차 진행을 반복 → 사전에 설정한 규칙에 따라 자동으로 작업 수행",
       rightTitle: "탐지 불가능한 ‘특수 패턴군’",
-      rightBody: "정적 분석으로 찾을 수 없던 복합·장기·비정상 패턴 → AI가 패턴·통계 이상치 탐지 기반으로 자동 탐색",
+      rightBody:
+        "정적 분석으로 찾을 수 없던 복합·장기·비정상 패턴 → AI가 패턴·통계 이상치 탐지 기반으로 자동 탐색",
     },
     {
       leftTitle: "단편적인 리스크 판단",
-      leftBody: "실무자 직관과 단순 위반 횟수에 의존 → 팀·개인별 다양한 관점의 분석을 통해 새로운 인사이트 도출",
+      leftBody:
+        "실무자 직관과 단순 위반 횟수에 의존 → 팀·개인별 다양한 관점의 분석을 통해 새로운 인사이트 도출",
       rightTitle: "반복적인 오탐 발생",
-      rightBody: "오탐 피드백이 반영되지 않음 → 데이터 누적 기반 모델 재학습 파이프라인으로 지속적인 정확도 개선",
+      rightBody:
+        "오탐 피드백이 반영되지 않음 → 데이터 누적 기반 모델 재학습 파이프라인으로 지속적인 정확도 개선",
     },
   ];
   const serviceMapColumns = [
@@ -472,394 +590,526 @@ function AttendanceProjectDetail({ project, onBack }) {
         </div>
 
         <div className="attendance-hero-visual">
-          <img
-            src={project.thumbnail}
-            alt="SKALE 근태 이상 탐지 대시보드"
-          />
+          <img src={project.thumbnail} alt="SKALE 근태 이상 탐지 대시보드" />
         </div>
       </section>
 
-      <section className="case-section case-intro">
-        <div className="case-section-number">01</div>
-        <div className="case-section-heading">
-          <p>개요</p>
-          <h2>개요</h2>
-        </div>
-        <div className="case-overview-headline">
-          효율적인 기업 운영을 위해 <strong>‘근태 관리’</strong>는 선택이 아닌
-          필수입니다.
-        </div>
-        <div className="case-overview-grid">
-          <div className="case-overview-definition">
-            <h3>근태</h3>
-            <p>
-              ‘부지런할 근(勤)’과 ‘게으를 태(怠)’
-              <br />
-              ‘출근’과 ‘결근’을 아울러 이르는 말
-            </p>
-            <ul>
-              <li>근로자가 제시간에 출근하고 퇴근하는지, 지각·조퇴·결근은 없는지 관리하는 것을 의미합니다.</li>
-              <li>성실히 근무에 임하는지를 나타내는 척도로 활용되며, 잦은 지각이나 결근은 근태 불량으로 간주됩니다.</li>
-            </ul>
-          </div>
-          <div className="case-overview-stats">
-            {overviewStats.map(([value, label, source]) => (
-              <article key={label} className="case-stat-card">
-                <strong>{value}</strong>
-                <h3>{label}</h3>
-                <span>{source}</span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="case-section case-problem-index">
-        <div className="case-section-number">02</div>
-        <div className="case-section-heading">
-          <p>문제 분석</p>
-          <h2>문제 분석</h2>
-        </div>
-        <div className="case-problem-banner">기존 근태 관리 서비스의 구조적 문제</div>
-        <div className="case-problem-index-grid">
-          {issueCards.map((item, index) => (
-            <article key={item}>
-              <strong>{String(index + 1).padStart(2, "0")}</strong>
-              <p>{item}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="case-dark-section">
-        <div className="case-section-number">02</div>
-        <div className="case-section-heading">
-          <p>문제 분석</p>
-          <h2>분산된 데이터 통합 관리의 어려움</h2>
-        </div>
-        <p className="case-section-lead">
-          실제 운영 환경에서는 근태가 하나의 기록으로 존재하지 않습니다. 출입, 접속, 초과근무,
-          비용정산, 주근무지처럼 서로 다른 시스템의 데이터를 직원 기준으로 다시 엮어야 비로소
-          “정상 흐름인지, 이상 패턴인지”를 해석할 수 있습니다.
-        </p>
-        <div className="data-source-cloud">
-          {dataSources.map((source) => (
-            <span key={source}>{source}</span>
-          ))}
-        </div>
-        <div className="case-data-grid">
-          {dataSourceInsights.map((item) => (
-            <article key={item.title} className="case-data-card">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-        <div className="case-data-summary">
-          <div>
-            <p className="case-data-summary-label">통합 시 필요한 기준</p>
-            <div className="case-data-summary-chips">
-              {integrationTargets.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </div>
-          <p className="case-data-summary-copy">
-            따라서 SKALE은 단순 조회 화면이 아니라, 분산된 이종 데이터를 동일한 직원 흐름으로
-            재구성하는 데이터 통합 계층이 먼저 필요했습니다.
+      <section className="portfolio-work-summary">
+        <div className="portfolio-work-heading">
+          <span>01 · MY ROLE</span>
+          <h3>저는 데이터 통합 설계와 이상 패턴 분석을 담당했습니다.</h3>
+          <p>
+            팀 프로젝트에서 백엔드 전체를 소개하기보다, 제가 직접 판단하고
+            설계한 작업에 집중해 정리했습니다.
           </p>
         </div>
-      </section>
 
-      <section className="case-section case-problem-detail">
-        <div className="case-section-number">02</div>
-        <div className="case-section-heading">
-          <p>문제 분석</p>
-          <h2>규칙 기반 이상 탐지의 한계</h2>
-        </div>
-        <p className="case-problem-subheadline">
-          기존의 Rule-Based 접근은 <strong>‘특수한 패턴’</strong>을 탐지할 수
-          없습니다.
-        </p>
-        <div className="case-problem-example-grid">
-          <article>비상계단을 활용한 출입 인증 회피</article>
-          <article>악의적인 우회 출근</article>
-          <article>GATE가 없는 저층부 근무자</article>
-          <article>반복적인 5분 늦은 출근</article>
-          <article>상습적 잔지각</article>
-          <article>기록이 존재하지 않는 사원</article>
+        <div className="portfolio-role-strip">
+          <article>
+            <strong>담당</strong>
+            <p>
+              데이터 정합성 검증 · 통합 데이터 설계 · ERD 구축 · 이상 패턴 분석
+            </p>
+          </article>
+          <article>
+            <strong>기여</strong>
+            <p>데이터/백엔드 중심 · 4인 팀 프로젝트</p>
+          </article>
+          <article>
+            <strong>기술</strong>
+            <p>Spring Boot · PostgreSQL · Python · Isolation Forest</p>
+          </article>
         </div>
       </section>
 
-      <section className="case-section case-problem-repeat">
-        <div className="case-section-number">02</div>
-        <div className="case-section-heading">
-          <p>문제 분석</p>
-          <h2>반복되는 오탐지</h2>
+      <section className="portfolio-work-detail">
+        <div className="portfolio-work-heading">
+          <span>02 · WHAT I DID</span>
+          <h3>제가 해결한 핵심 작업은 세 가지입니다.</h3>
         </div>
-        <div className="case-problem-quote">
-          운영자의 피드백이 반영되지 않아, 동일 패턴이 반복해서 이상으로
-          탐지되는 오류가 발생합니다.
-        </div>
-        <div className="problem-flow problem-flow-light">
+
+        <div className="portfolio-task-list">
           <article>
             <span>01</span>
-            <h3>이상 데이터 탐지</h3>
-            <p>특정 데이터가 이상으로 탐지</p>
+            <div>
+              <small>DATA QUALITY</small>
+              <h3>서로 다른 근태 데이터의 기준을 맞췄습니다.</h3>
+              <p>
+                HR·출입·VDI 데이터의 사번, 날짜, 시간 형식을 검증하고 직원
+                단위로 연결할 수 있도록 정규화 기준을 정의했습니다.
+              </p>
+            </div>
           </article>
           <article>
             <span>02</span>
-            <h3>관리자 정상 처리</h3>
-            <p>소명 절차 진행 후 정상으로 수정</p>
+            <div>
+              <small>DATA MODELING</small>
+              <h3>직원 중심의 통합 조회 구조와 ERD를 설계했습니다.</h3>
+              <p>
+                직원·조직·근태·탐지 결과의 관계를 모델링해 여러 기록을 한
+                화면에서 조회하고 분석할 수 있는 저장 구조를 만들었습니다.
+              </p>
+            </div>
           </article>
           <article>
             <span>03</span>
-            <h3>동일 패턴 재발생</h3>
-            <p>피드백이 반영되지 않아 다시 이상 판정</p>
-          </article>
-        </div>
-      </section>
-
-      <section className="case-section case-problem-needs">
-        <div className="case-section-number">02</div>
-        <div className="case-section-heading">
-          <p>문제 분석</p>
-          <h2>추가 상세 분석의 필요성</h2>
-        </div>
-        <div className="case-need-list">
-          {detailedNeeds.map((item) => (
-            <div key={item} className="case-need-bubble">
-              {item}
+            <div>
+              <small>ANOMALY ANALYSIS</small>
+              <h3>규칙과 AI 결과를 함께 해석하는 기준을 정리했습니다.</h3>
+              <p>
+                단순 지각·조퇴 규칙과 Isolation Forest 기반 이상치를 비교해
+                반복·복합 행동을 판단할 수 있는 분석 기준을 설계했습니다.
+              </p>
             </div>
-          ))}
-        </div>
-        <div className="case-problem-footer">
-          단순 근태 위반 적발에서 나아가, 잠재된 패턴을 산출하고 전략적인 조직
-          운영에 기여합니다.
+          </article>
         </div>
       </section>
 
-      <section className="case-section case-service-overview">
-        <div className="case-section-number">03</div>
-        <div className="case-section-heading">
-          <p>서비스 소개</p>
-          <h2>서비스 소개</h2>
+      <section className="portfolio-work-result">
+        <div className="portfolio-result-copy">
+          <span>03 · RESULT</span>
+          <h3>흩어진 기록을 한 사람의 근무 흐름으로 연결했습니다.</h3>
+          <ul>
+            <li>분산된 근태 데이터의 통합 조회 기반 구축</li>
+            <li>직원·조직·날짜별 이상 패턴 분석 가능</li>
+            <li>관리자가 탐지 근거를 확인할 수 있는 대시보드 구현</li>
+          </ul>
         </div>
-        <div className="case-service-banner">
-          데이터 관리부터 이상 탐지, 결과 분석까지 전 과정을 자동화
-        </div>
-        <div className="case-service-pillars">
-          <article>
-            <strong>01</strong>
-            <h3>데이터(Data)</h3>
-            <p>20개 사내 데이터 활용 (HR, Gate, VDI 등)</p>
-          </article>
-          <article>
-            <strong>02</strong>
-            <h3>처리(Processing)</h3>
-            <p>데이터 통합 관리 · 사용자 프로파일링</p>
-          </article>
-          <article>
-            <strong>03</strong>
-            <h3>탐지(Detection)</h3>
-            <p>Rule-Based 탐지 · AI 패턴 탐지</p>
-          </article>
-          <article>
-            <strong>04</strong>
-            <h3>분석(Analysis)</h3>
-            <p>대시보드 · 결과 분석 리포트</p>
-          </article>
-        </div>
-        <div className="case-service-structure">
-          <p className="case-service-structure-label">운영 구조</p>
-          <div className="case-feature-grid case-structure-grid">
-            {structureHighlights.map((item) => (
-              <article key={item.title} className="case-feature-card case-structure-card">
-                <h3>
-                  <strong>{item.no}</strong> {item.title}
-                </h3>
-                <ul>
-                  {item.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="case-section case-service-effects">
-        <div className="case-section-number">03</div>
-        <div className="case-section-heading">
-          <p>서비스 소개</p>
-          <h2>기대효과</h2>
-        </div>
-        <div className="case-effect-grid">
-          {effectRows.map((row) => (
-            <div key={row.leftTitle + row.rightTitle} className="case-effect-row">
-              <article>
-                <h3>{row.leftTitle}</h3>
-                <p>{row.leftBody}</p>
-              </article>
-              <span>≫</span>
-              <article>
-                <h3>{row.rightTitle}</h3>
-                <p>{row.rightBody}</p>
-              </article>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="case-section case-service-features">
-        <div className="case-section-number">03</div>
-        <div className="case-section-heading">
-          <p>서비스 소개</p>
-          <h2>기능</h2>
-        </div>
-        <div className="case-feature-grid">
-          {featureGroups.map((group) => (
-            <article key={group.title} className="case-feature-card">
-              <h3>
-                <strong>{group.no}</strong> {group.title}
-              </h3>
-              <ul>
-                {group.bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="case-section case-service-map">
-        <div className="case-section-number">03</div>
-        <div className="case-section-heading">
-          <p>서비스 소개</p>
-          <h2>서비스 구조도</h2>
-        </div>
-        <div className="case-map">
-          <div className="case-map-root">근태관리 이상탐지</div>
-          <div className="case-map-columns">
-            {serviceMapColumns.map((column) => (
-              <article key={column.title} className="case-map-column">
-                <h3>{column.title}</h3>
-                <div className="case-map-groups">
-                  {column.groups.map(([groupTitle, items]) => (
-                    <div key={groupTitle} className="case-map-group">
-                      <strong>{groupTitle}</strong>
-                      <div className="case-map-items">
-                        {items.map((item) => (
-                          <span key={item}>{item}</span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-        <p className="case-map-note">
-          *잠재 패턴: 사내 근태 데이터를 바탕으로 자체 분석을 통해 파악한 잠재적 이상 유형
-        </p>
-        <div className="case-tech-summary">
-          <p className="case-tech-summary-label">기술 구조</p>
-          <div className="case-tech-grid">
-            {techHighlights.map((item) => (
-              <article key={item.title} className="case-tech-card">
-                <span>{item.label}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="case-pipeline">
-        <div className="case-section-number">04</div>
-        <div className="case-section-heading">
-          <p>구현</p>
-          <h2>
-            세 가지 관점에서 구성원의 행동을
-            <br />
-            다각도로 살펴봅니다.
-          </h2>
-        </div>
-
-        <div className="pipeline-row">
-          <article>
-            <span>Step 01</span>
-            <h3>통계적 상대 평가</h3>
-            <p>우리 팀의 평균에 부합하는가를 기준으로 맞춤형 편차를 계산합니다.</p>
-            <p>직원별 특성, 팀 평균 근무시간, 주근무지 정보를 함께 반영합니다.</p>
-            <p>단순 위반이 아닌 맥락 기반 상대적 이상 여부를 먼저 확인합니다.</p>
-          </article>
-          <b>→</b>
-          <article>
-            <span>Step 02</span>
-            <h3>분포적 고립 확인</h3>
-            <p>전체 임직원 중 소수의 특이 행위자를 선별합니다.</p>
-            <p>Isolation Forest 기반으로 타 근무자 대비 이질적인 행위를 탐지합니다.</p>
-            <p>예를 들어 게이트 이용 기록 누락 같은 이상 신호를 포착합니다.</p>
-          </article>
-          <b>→</b>
-          <article>
-            <span>Step 03</span>
-            <h3>행동 패턴 검증</h3>
-            <p>하루의 흐름이 자연스러운가를 기준으로 15분 단위 시퀀스를 분석합니다.</p>
-            <p>AutoEncoder로 비정상 타임라인과 장기적 패턴 변화를 식별합니다.</p>
-            <p>사람이 직접 찾기 어려운 복합 행동 패턴을 검증합니다.</p>
-          </article>
-          <b>→</b>
-          <article>
-            <span>Step 04</span>
-            <h3>위험도 계산</h3>
-            <p>세 분석 결과를 가중 평균으로 통합해 최종 위험도를 산출합니다.</p>
-            <p>탐지 결과는 리포트와 소명 요청 흐름으로 연결됩니다.</p>
-            <p>운영자 피드백은 이후 재학습 데이터로 누적되어 정확도를 높입니다.</p>
-          </article>
-        </div>
-
-        <figure className="pipeline-figure">
+        <figure>
           <img
-            src="/images/projects/이상탐지파이프라인.png"
-            alt="SKALE 이상탐지 분석 파이프라인"
+            src="/images/projects/skale-product-showcase.png"
+            alt="설계한 통합 데이터를 활용한 SKALE 대시보드 구현 화면"
           />
-          <figcaption>
-            데이터 업로드 이후 규칙 기반 탐지와 AI 기반 패턴 탐지를 결합하고,
-            통계적 상대 평가, 분포적 고립 확인, 행동 패턴 검증을 거쳐 최종 위험도를 계산합니다.
-          </figcaption>
+          <figcaption>제가 설계한 데이터 구조가 적용된 구현 화면</figcaption>
         </figure>
       </section>
 
-      <section className="case-outcome">
-        <div>
-          <p className="case-kicker">Expected Effect</p>
-          <h2>
-            분석 결과 리포트로
-            <br />
-            객관적인 의사결정을 지원합니다.
-          </h2>
-        </div>
-        <div className="outcome-list">
-          <p>
-            <span>01</span> 각 사원의 근무 패턴을 빠르게 확인
-          </p>
-          <p>
-            <span>02</span> 조직·팀 구성원의 평균 근태 현황을 한눈에 파악
-          </p>
-          <p>
-            <span>03</span> 업무 효율성 향상과 HR 운영 리소스 절감
-          </p>
-          <p>
-            <span>04</span> 데이터 기반의 객관적 의사결정 지원
-          </p>
-        </div>
-      </section>
+      {false && (
+        <>
+          <section className="case-section case-intro">
+            <div className="case-section-number">01</div>
+            <div className="case-section-heading">
+              <p>개요</p>
+              <h3>개요</h3>
+            </div>
+            <div className="case-overview-headline">
+              효율적인 기업 운영을 위해 <strong>‘근태 관리’</strong>는 선택이
+              아닌 필수입니다.
+            </div>
+            <div className="case-overview-grid">
+              <div className="case-overview-definition">
+                <h3>근태</h3>
+                <p>
+                  ‘부지런할 근(勤)’과 ‘게으를 태(怠)’
+                  <br />
+                  ‘출근’과 ‘결근’을 아울러 이르는 말
+                </p>
+                <ul>
+                  <li>
+                    근로자가 제시간에 출근하고 퇴근하는지, 지각·조퇴·결근은
+                    없는지 관리하는 것을 의미합니다.
+                  </li>
+                  <li>
+                    성실히 근무에 임하는지를 나타내는 척도로 활용되며, 잦은
+                    지각이나 결근은 근태 불량으로 간주됩니다.
+                  </li>
+                </ul>
+              </div>
+              <div className="case-overview-stats">
+                {overviewStats.map(([value, label, source]) => (
+                  <article key={label} className="case-stat-card">
+                    <strong>{value}</strong>
+                    <h3>{label}</h3>
+                    <span>{source}</span>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="case-section case-problem-index">
+            <div className="case-section-number">02</div>
+            <div className="case-section-heading">
+              <p>문제 분석</p>
+              <h3>문제 분석</h3>
+            </div>
+            <div className="case-problem-banner">
+              기존 근태 관리 서비스의 구조적 문제
+            </div>
+            <div className="case-problem-index-grid">
+              {issueCards.map((item, index) => (
+                <article key={item}>
+                  <strong>{String(index + 1).padStart(2, "0")}</strong>
+                  <p>{item}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="case-dark-section">
+            <div className="case-section-number">02</div>
+            <div className="case-section-heading">
+              <p>문제 분석</p>
+              <h3>분산된 데이터 통합 관리의 어려움</h3>
+            </div>
+            <p className="case-section-lead">
+              실제 운영 환경에서는 근태가 하나의 기록으로 존재하지 않습니다.
+              출입, 접속, 초과근무, 비용정산, 주근무지처럼 서로 다른 시스템의
+              데이터를 직원 기준으로 다시 엮어야 비로소 “정상 흐름인지, 이상
+              패턴인지”를 해석할 수 있습니다.
+            </p>
+            <div className="data-source-cloud">
+              {dataSources.map((source) => (
+                <span key={source}>{source}</span>
+              ))}
+            </div>
+            <div className="case-data-grid">
+              {dataSourceInsights.map((item) => (
+                <article key={item.title} className="case-data-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="case-data-summary">
+              <div>
+                <p className="case-data-summary-label">통합 시 필요한 기준</p>
+                <div className="case-data-summary-chips">
+                  {integrationTargets.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </div>
+              <p className="case-data-summary-copy">
+                따라서 SKALE은 단순 조회 화면이 아니라, 분산된 이종 데이터를
+                동일한 직원 흐름으로 재구성하는 데이터 통합 계층이 먼저
+                필요했습니다.
+              </p>
+            </div>
+          </section>
+
+          <section className="case-section case-problem-detail">
+            <div className="case-section-number">02</div>
+            <div className="case-section-heading">
+              <p>문제 분석</p>
+              <h3>규칙 기반 이상 탐지의 한계</h3>
+            </div>
+            <p className="case-problem-subheadline">
+              기존의 Rule-Based 접근은 <strong>‘특수한 패턴’</strong>을 탐지할
+              수 없습니다.
+            </p>
+            <div className="case-problem-example-grid">
+              <article>비상계단을 활용한 출입 인증 회피</article>
+              <article>악의적인 우회 출근</article>
+              <article>GATE가 없는 저층부 근무자</article>
+              <article>반복적인 5분 늦은 출근</article>
+              <article>상습적 잔지각</article>
+              <article>기록이 존재하지 않는 사원</article>
+            </div>
+          </section>
+
+          <section className="case-section case-problem-repeat">
+            <div className="case-section-number">02</div>
+            <div className="case-section-heading">
+              <p>문제 분석</p>
+              <h3>반복되는 오탐지</h3>
+            </div>
+            <div className="case-problem-quote">
+              운영자의 피드백이 반영되지 않아, 동일 패턴이 반복해서 이상으로
+              탐지되는 오류가 발생합니다.
+            </div>
+            <div className="problem-flow problem-flow-light">
+              <article>
+                <span>01</span>
+                <h3>이상 데이터 탐지</h3>
+                <p>특정 데이터가 이상으로 탐지</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>관리자 정상 처리</h3>
+                <p>소명 절차 진행 후 정상으로 수정</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>동일 패턴 재발생</h3>
+                <p>피드백이 반영되지 않아 다시 이상 판정</p>
+              </article>
+            </div>
+          </section>
+
+          <section className="case-section case-problem-needs">
+            <div className="case-section-number">02</div>
+            <div className="case-section-heading">
+              <p>문제 분석</p>
+              <h3>추가 상세 분석의 필요성</h3>
+            </div>
+            <div className="case-need-list">
+              {detailedNeeds.map((item) => (
+                <div key={item} className="case-need-bubble">
+                  {item}
+                </div>
+              ))}
+            </div>
+            <div className="case-problem-footer">
+              단순 근태 위반 적발에서 나아가, 잠재된 패턴을 산출하고 전략적인
+              조직 운영에 기여합니다.
+            </div>
+          </section>
+
+          <section className="case-section case-service-overview">
+            <div className="case-section-number">03</div>
+            <div className="case-section-heading">
+              <p>서비스 소개</p>
+              <h3>서비스 소개</h3>
+            </div>
+            <div className="case-service-banner">
+              데이터 관리부터 이상 탐지, 결과 분석까지 전 과정을 자동화
+            </div>
+            <div className="case-service-pillars">
+              <article>
+                <strong>01</strong>
+                <h3>데이터(Data)</h3>
+                <p>20개 사내 데이터 활용 (HR, Gate, VDI 등)</p>
+              </article>
+              <article>
+                <strong>02</strong>
+                <h3>처리(Processing)</h3>
+                <p>데이터 통합 관리 · 사용자 프로파일링</p>
+              </article>
+              <article>
+                <strong>03</strong>
+                <h3>탐지(Detection)</h3>
+                <p>Rule-Based 탐지 · AI 패턴 탐지</p>
+              </article>
+              <article>
+                <strong>04</strong>
+                <h3>분석(Analysis)</h3>
+                <p>대시보드 · 결과 분석 리포트</p>
+              </article>
+            </div>
+            <div className="case-service-structure">
+              <p className="case-service-structure-label">운영 구조</p>
+              <div className="case-feature-grid case-structure-grid">
+                {structureHighlights.map((item) => (
+                  <article
+                    key={item.title}
+                    className="case-feature-card case-structure-card"
+                  >
+                    <h3>
+                      <strong>{item.no}</strong> {item.title}
+                    </h3>
+                    <ul>
+                      {item.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="case-section case-service-effects">
+            <div className="case-section-number">03</div>
+            <div className="case-section-heading">
+              <p>서비스 소개</p>
+              <h3>기대효과</h3>
+            </div>
+            <div className="case-effect-grid">
+              {effectRows.map((row) => (
+                <div
+                  key={row.leftTitle + row.rightTitle}
+                  className="case-effect-row"
+                >
+                  <article>
+                    <h3>{row.leftTitle}</h3>
+                    <p>{row.leftBody}</p>
+                  </article>
+                  <span>≫</span>
+                  <article>
+                    <h3>{row.rightTitle}</h3>
+                    <p>{row.rightBody}</p>
+                  </article>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="case-section case-service-features">
+            <div className="case-section-number">03</div>
+            <div className="case-section-heading">
+              <p>서비스 소개</p>
+              <h3>기능</h3>
+            </div>
+            <div className="case-feature-grid">
+              {featureGroups.map((group) => (
+                <article key={group.title} className="case-feature-card">
+                  <h3>
+                    <strong>{group.no}</strong> {group.title}
+                  </h3>
+                  <ul>
+                    {group.bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="case-section case-service-map">
+            <div className="case-section-number">03</div>
+            <div className="case-section-heading">
+              <p>서비스 소개</p>
+              <h3>서비스 구조도</h3>
+            </div>
+            <div className="case-map">
+              <div className="case-map-root">근태관리 이상탐지</div>
+              <div className="case-map-columns">
+                {serviceMapColumns.map((column) => (
+                  <article key={column.title} className="case-map-column">
+                    <h3>{column.title}</h3>
+                    <div className="case-map-groups">
+                      {column.groups.map(([groupTitle, items]) => (
+                        <div key={groupTitle} className="case-map-group">
+                          <strong>{groupTitle}</strong>
+                          <div className="case-map-items">
+                            {items.map((item) => (
+                              <span key={item}>{item}</span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <p className="case-map-note">
+              *잠재 패턴: 사내 근태 데이터를 바탕으로 자체 분석을 통해 파악한
+              잠재적 이상 유형
+            </p>
+            <div className="case-tech-summary">
+              <p className="case-tech-summary-label">기술 구조</p>
+              <div className="case-tech-grid">
+                {techHighlights.map((item) => (
+                  <article key={item.title} className="case-tech-card">
+                    <span>{item.label}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="case-pipeline">
+            <div className="case-section-number">04</div>
+            <div className="case-section-heading">
+              <p>구현</p>
+              <h3>
+                세 가지 관점에서 구성원의 행동을
+                <br />
+                다각도로 살펴봅니다.
+              </h3>
+            </div>
+
+            <div className="pipeline-row">
+              <article>
+                <span>Step 01</span>
+                <h3>통계적 상대 평가</h3>
+                <p>
+                  우리 팀의 평균에 부합하는가를 기준으로 맞춤형 편차를
+                  계산합니다.
+                </p>
+                <p>
+                  직원별 특성, 팀 평균 근무시간, 주근무지 정보를 함께
+                  반영합니다.
+                </p>
+                <p>
+                  단순 위반이 아닌 맥락 기반 상대적 이상 여부를 먼저 확인합니다.
+                </p>
+              </article>
+              <b>→</b>
+              <article>
+                <span>Step 02</span>
+                <h3>분포적 고립 확인</h3>
+                <p>전체 임직원 중 소수의 특이 행위자를 선별합니다.</p>
+                <p>
+                  Isolation Forest 기반으로 타 근무자 대비 이질적인 행위를
+                  탐지합니다.
+                </p>
+                <p>
+                  예를 들어 게이트 이용 기록 누락 같은 이상 신호를 포착합니다.
+                </p>
+              </article>
+              <b>→</b>
+              <article>
+                <span>Step 03</span>
+                <h3>행동 패턴 검증</h3>
+                <p>
+                  하루의 흐름이 자연스러운가를 기준으로 15분 단위 시퀀스를
+                  분석합니다.
+                </p>
+                <p>
+                  AutoEncoder로 비정상 타임라인과 장기적 패턴 변화를 식별합니다.
+                </p>
+                <p>사람이 직접 찾기 어려운 복합 행동 패턴을 검증합니다.</p>
+              </article>
+              <b>→</b>
+              <article>
+                <span>Step 04</span>
+                <h3>위험도 계산</h3>
+                <p>
+                  세 분석 결과를 가중 평균으로 통합해 최종 위험도를 산출합니다.
+                </p>
+                <p>탐지 결과는 리포트와 소명 요청 흐름으로 연결됩니다.</p>
+                <p>
+                  운영자 피드백은 이후 재학습 데이터로 누적되어 정확도를
+                  높입니다.
+                </p>
+              </article>
+            </div>
+
+            <figure className="pipeline-figure">
+              <img
+                src="/images/projects/이상탐지파이프라인.png"
+                alt="SKALE 이상탐지 분석 파이프라인"
+              />
+              <figcaption>
+                데이터 업로드 이후 규칙 기반 탐지와 AI 기반 패턴 탐지를
+                결합하고, 통계적 상대 평가, 분포적 고립 확인, 행동 패턴 검증을
+                거쳐 최종 위험도를 계산합니다.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section className="case-outcome">
+            <div>
+              <p className="case-kicker">Expected Effect</p>
+              <h3>
+                분석 결과 리포트로
+                <br />
+                객관적인 의사결정을 지원합니다.
+              </h3>
+            </div>
+            <div className="outcome-list">
+              <p>
+                <span>01</span> 각 사원의 근무 패턴을 빠르게 확인
+              </p>
+              <p>
+                <span>02</span> 조직·팀 구성원의 평균 근태 현황을 한눈에 파악
+              </p>
+              <p>
+                <span>03</span> 업무 효율성 향상과 HR 운영 리소스 절감
+              </p>
+              <p>
+                <span>04</span> 데이터 기반의 객관적 의사결정 지원
+              </p>
+            </div>
+          </section>
+        </>
+      )}
     </main>
   );
 }
@@ -920,7 +1170,9 @@ function ProjectDetail({ project, onBack }) {
           <section className="project-detail-block">
             <span className="project-detail-block-label">Problem</span>
             <ul>
-              {project.problem?.map((item) => <li key={item}>{item}</li>)}
+              {project.problem?.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </section>
           <section className="project-detail-block">
@@ -942,7 +1194,9 @@ function ProjectDetail({ project, onBack }) {
           <section className="project-detail-block">
             <span className="project-detail-block-label">Results</span>
             <ul>
-              {project.results?.map((item) => <li key={item}>{item}</li>)}
+              {project.results?.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </section>
         </div>
@@ -952,17 +1206,7 @@ function ProjectDetail({ project, onBack }) {
 }
 
 function App() {
-  const isDetailReady = (project) =>
-    project.slug === "attendance-anomaly-detection";
-
-  const getProjectFromPath = () => {
-    const slug = window.location.pathname.match(
-      /^\/projects\/([^/]+)\/?$/,
-    )?.[1];
-    const project = projects.find((item) => item.slug === slug) || null;
-    return project && isDetailReady(project) ? project : null;
-  };
-  const [selectedProject, setSelectedProject] = useState(getProjectFromPath);
+  const [expandedProjects, setExpandedProjects] = useState([]);
 
   useEffect(() => {
     const animatedItems = document.querySelectorAll(
@@ -971,7 +1215,7 @@ function App() {
 
     animatedItems.forEach((item, index) => {
       item.setAttribute("data-animate", "");
-      item.style.transitionDelay = `${index * 80}ms`;
+      item.style.transitionDelay = `${index * 20}ms`;
     });
 
     const reveal = new IntersectionObserver(
@@ -983,7 +1227,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.08 },
     );
 
     animatedItems.forEach((item) => reveal.observe(item));
@@ -991,28 +1235,9 @@ function App() {
     return () => reveal.disconnect();
   }, []);
 
-  useEffect(() => {
-    const handlePopState = () => setSelectedProject(getProjectFromPath());
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
-
-  const openProject = (project) => {
-    if (!isDetailReady(project)) return;
-    window.history.pushState({}, "", `/projects/${project.slug}`);
-    setSelectedProject(project);
-    window.scrollTo({ top: 0, behavior: "instant" });
+  const toggleProject = (slug) => {
+    setExpandedProjects((current) => (current.includes(slug) ? [] : [slug]));
   };
-
-  const closeProject = () => {
-    window.history.pushState({}, "", "/");
-    setSelectedProject(null);
-    window.scrollTo({ top: 0, behavior: "instant" });
-  };
-
-  if (selectedProject) {
-    return <ProjectDetail project={selectedProject} onBack={closeProject} />;
-  }
 
   return (
     <div className="page-shell">
@@ -1026,7 +1251,7 @@ function App() {
 
         <section className="hero-center">
           <div className="hero-intro">
-            <span className="hero-chip">Selected Works</span>
+            <span className="hero-chip">Selected Projects</span>
             <span className="hero-chip">AI Service Developer</span>
           </div>
 
@@ -1072,11 +1297,6 @@ function App() {
             <span>20</span>
             <span>26</span>
           </div>
-          <div className="hero-tags">
-            <span>Landing</span>
-            <span>Identity</span>
-            <span>Motion</span>
-          </div>
         </aside>
       </main>
 
@@ -1091,7 +1311,7 @@ function App() {
         <div className="profile-grid">
           <section className="profile-intro">
             <p className="profile-kicker">About Me</p>
-            <h2 className="profile-title">
+            <h3 className="profile-title">
               데이터를 연결해
               <br />
               AI 서비스로
@@ -1099,7 +1319,7 @@ function App() {
               가치를 만드는
               <br />
               개발자, <strong>이미주</strong>입니다.
-            </h2>
+            </h3>
 
             <p className="profile-copy">
               데이터 분석부터 AI 서비스 개발, 백엔드 시스템 구축까지 경험하며
@@ -1110,11 +1330,27 @@ function App() {
             <dl className="contact-list">
               <div className="contact-row">
                 <dt>Github</dt>
-                <dd>--</dd>
+                <dd>
+                  <a
+                    href="https://github.com/MIJUUUUU"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    github.com/MIJUUUUU
+                  </a>
+                </dd>
               </div>
               <div className="contact-row">
                 <dt>Blog</dt>
-                <dd>00</dd>
+                <dd>
+                  <a
+                    href="https://study-juju.tistory.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    study-juju.tistory.com
+                  </a>
+                </dd>
               </div>
               <div className="contact-row">
                 <dt>Email</dt>
@@ -1123,20 +1359,68 @@ function App() {
             </dl>
           </section>
 
-          <div className="profile-details">
-            <section className="detail-block">
+          <div className="profile-scroll-flow">
+            <section
+              className="core-competencies profile-flow-panel"
+              data-step="01"
+            >
+              <p className="profile-kicker">Core Competencies</p>
+              <h3>문제를 서비스로 연결하는 세 가지 역량</h3>
+
+              <div className="competency-list">
+                <article>
+                  <span>01 · DATA</span>
+                  <h4>데이터 분석 역량</h4>
+                  <p>
+                    데이터를 수집·정제하고 특징을 분석해 문제의 원인을 찾으며,
+                    모델과 서비스에서 활용할 수 있는 구조로 설계합니다.
+                  </p>
+                  <small>Data Analysis · Feature Engineering · Modeling</small>
+                </article>
+                <article>
+                  <span>02 · PLANNING</span>
+                  <h4>서비스 기획 및 문제 정의</h4>
+                  <p>
+                    사용자 인터뷰와 요구사항 분석을 통해 핵심 문제를 정의하고,
+                    데이터와 AI 기술이 실제 가치로 이어지는 흐름을 설계합니다.
+                  </p>
+                  <small>User Interview · Requirements · Service Flow</small>
+                </article>
+                <article>
+                  <span>03 · AI</span>
+                  <h4>AI 기능의 서비스 구현 능력</h4>
+                  <p>
+                    RAG, LLM, 이상 탐지 모델을 사용자 기능과 연결하고 결과를
+                    이해하기 쉬운 서비스 흐름으로 구현합니다.
+                  </p>
+                  <small>RAG · LLM · Machine Learning</small>
+                </article>
+              </div>
+            </section>
+
+            <section className="detail-block profile-flow-panel" data-step="02">
+              <p className="profile-kicker">Career</p>
               <h3>Experience</h3>
               <div className="timeline-list">
-                {experiences.map(([title, date]) => (
+                {experiences.map(([title, date, href]) => (
                   <div className="timeline-row" key={`${title}-${date}`}>
-                    <p>{title}</p>
+                    <p>
+                      {href ? (
+                        <a href={href} target="_blank" rel="noreferrer">
+                          {title}
+                        </a>
+                      ) : (
+                        title
+                      )}
+                    </p>
                     <span>{date}</span>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section className="detail-block">
+            <section className="detail-block profile-flow-panel" data-step="03">
+              <p className="profile-kicker">Background</p>
               <h3>Education</h3>
               <div className="timeline-list">
                 {educations.map(([title, date]) => (
@@ -1147,17 +1431,101 @@ function App() {
                 ))}
               </div>
             </section>
-
-            <section className="detail-block">
-              <h3>Main Skills</h3>
-              <p className="skills-line">
-                Python, Java, Spring Boot, React,
-                <br />
-                Machine Learning, RAG, PostgreSQL, Docker, Kubernetes
-              </p>
-            </section>
           </div>
         </div>
+
+        <section className="detail-block profile-main-skills">
+          <p className="profile-kicker">Toolbox</p>
+          <h3>Main Skills</h3>
+          <div className="skills-groups">
+            <section className="skills-group">
+              <div className="skills-group-heading">
+                <span>01</span>
+                <h4>Frontend</h4>
+              </div>
+              <div className="skills-logo-list">
+                <figure>
+                  <img src="/images/projects/React.png" alt="React" />
+                  <figcaption>React</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/vue.png" alt="Vue.js" />
+                  <figcaption>Vue.js</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section className="skills-group">
+              <div className="skills-group-heading">
+                <span>02</span>
+                <h4>Backend</h4>
+              </div>
+              <div className="skills-logo-list">
+                <figure>
+                  <img src="/images/projects/java.png" alt="Java" />
+                  <figcaption>Java</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="/images/projects/springboot.png"
+                    alt="Spring Boot"
+                  />
+                  <figcaption>Spring Boot</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/kotlin.png" alt="Kotlin" />
+                  <figcaption>Kotlin</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section className="skills-group">
+              <div className="skills-group-heading">
+                <span>03</span>
+                <h4>AI &amp; Data</h4>
+              </div>
+              <div className="skills-logo-list">
+                <figure>
+                  <img src="/images/projects/python.png" alt="Python" />
+                  <figcaption>Python</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/postgre.png" alt="PostgreSQL" />
+                  <figcaption>PostgreSQL</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/mysql.png" alt="MySQL" />
+                  <figcaption>MySQL</figcaption>
+                </figure>
+              </div>
+            </section>
+
+            <section className="skills-group">
+              <div className="skills-group-heading">
+                <span>04</span>
+                <h4>DevOps &amp; Deployment</h4>
+              </div>
+              <div className="skills-logo-list">
+                <figure>
+                  <img src="/images/projects/docker.png" alt="Docker" />
+                  <figcaption>Docker</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/kube.png" alt="Kubernetes" />
+                  <figcaption>Kubernetes</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/jenkins.png" alt="Jenkins" />
+                  <figcaption>Jenkins</figcaption>
+                </figure>
+                <figure>
+                  <img src="/images/projects/argo.png" alt="Argo CD" />
+                  <figcaption>Argo CD</figcaption>
+                </figure>
+              </div>
+            </section>
+          </div>
+        </section>
 
         <div className="section-footer">
           <span>2026 Portfolio</span>
@@ -1170,90 +1538,117 @@ function App() {
         <div className="projects-header">
           <div>
             <p className="profile-kicker">Selected Projects</p>
-            <h2 className="projects-title">
-              실제 문제를 해결한
+            <h3 className="projects-title">
+              문제를 해결하며
               <br />
-              AI 프로젝트를
-              <br />
-              소개합니다.
-            </h2>
+              만든 프로젝트입니다.
+            </h3>
           </div>
           <p className="projects-copy">
-            각 프로젝트의
+            프로젝트를 선택하면 문제 정의부터
             <br />
-            문제 정의부터
-            <br />
-            <br />
-            설계, 구현,
-            <br />
-            기술 스택,
-            <br />
-            성과까지
-            <br />
-            <br />
-            확인할 수 있습니다.
+            담당 역할과 구현 결과까지 확인할 수 있습니다.
           </p>
         </div>
 
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article
-              className={`project-card${project.featured ? " is-featured" : ""}${isDetailReady(project) ? " is-available" : " is-disabled"}`}
-              key={project.slug}
-              tabIndex={isDetailReady(project) ? "0" : "-1"}
-              role={isDetailReady(project) ? "link" : undefined}
-              onClick={isDetailReady(project) ? () => openProject(project) : undefined}
-              onKeyDown={
-                isDetailReady(project)
-                  ? (event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        openProject(project);
-                      }
-                    }
-                  : undefined
-              }
-            >
-              <div
-                className={`project-visual${project.thumbnail ? " has-image" : " project-visual-empty"}`}
+        <div className="project-accordion">
+          {projects.map((project) => {
+            const isExpanded = expandedProjects.includes(project.slug);
+
+            return (
+              <article
+                className={`project-accordion-item${isExpanded ? " is-expanded" : ""}`}
+                key={project.slug}
               >
-                {project.thumbnail ? (
-                  <img
-                    src={project.thumbnail}
-                    alt={`${project.title} 프로젝트 썸네일`}
-                  />
-                ) : (
-                  <span>Thumbnail</span>
-                )}
-              </div>
-              <div className="project-body">
-                <div className="project-card-labels">
-                  {project.badge && <span>{project.badge}</span>}
-                  {project.organization && <span>{project.organization}</span>}
-                </div>
-                <h3>{project.title}</h3>
-                <p className="project-english-title">{project.englishTitle}</p>
-                <div className="project-meta">
-                  {project.meta.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-                <p>{project.description}</p>
                 <button
-                  className="project-link"
+                  className="project-accordion-trigger"
                   type="button"
-                  disabled={!isDetailReady(project)}
-                  onClick={(event) => {
-                    event.stopPropagation();
-                    if (!isDetailReady(project)) return;
-                    openProject(project);
-                  }}
+                  aria-expanded={isExpanded}
+                  aria-controls={`project-panel-${project.slug}`}
+                  onClick={() => toggleProject(project.slug)}
                 >
-                  View Project
+                  <div className="project-accordion-title">
+                    <div>
+                      {project.badge && <span>{project.badge}</span>}
+                      {project.organization && (
+                        <span>{project.organization}</span>
+                      )}
+                    </div>
+                    <h3>{project.title}</h3>
+                  </div>
+                  <p>{project.englishTitle}</p>
+                  <div className="project-accordion-summary">
+                    <span>{project.meta[0]}</span>
+                    <span>{project.meta.slice(1, 3).join(" · ")}</span>
+                  </div>
+                  <i aria-hidden="true">⌄</i>
                 </button>
-              </div>
-            </article>
-          ))}
+
+                <div
+                  className="project-accordion-panel"
+                  id={`project-panel-${project.slug}`}
+                  hidden={!isExpanded}
+                >
+                  <div
+                    className={`project-accordion-content${project.thumbnail ? " has-image" : ""}`}
+                  >
+                    <div className="project-accordion-copy">
+                      <p className="project-accordion-description">
+                        {project.description}
+                      </p>
+
+                      <section className="project-accordion-problem">
+                        <strong>문제의식</strong>
+                        <ul>
+                          {project.problem.slice(0, 2).map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </section>
+
+                      <div className="project-accordion-columns">
+                        <section>
+                          <strong>역할</strong>
+                          <ul>
+                            {project.implementation.slice(0, 3).map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </section>
+                        <section>
+                          <strong>결과</strong>
+                          <ul>
+                            {project.results.slice(0, 2).map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </section>
+                      </div>
+
+                      <div className="project-accordion-footer">
+                        <div className="project-accordion-tech">
+                          {project.meta.slice(1).map((item) => (
+                            <span key={item}>{item}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {project.thumbnail && (
+                      <figure
+                        className={`project-accordion-image${project.thumbnailFit === "contain" ? " is-contain" : ""}${project.thumbnailCrop === "bottom" ? " is-bottom-crop" : ""}`}
+                      >
+                        <img
+                          src={project.thumbnail}
+                          alt={`${project.title} 프로젝트 대표 화면`}
+                        />
+                      </figure>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
     </div>
