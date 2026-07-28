@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css");
+
 :root {
   --bg: #f7f4ee;
   --fg: #121212;
@@ -146,16 +149,15 @@ body::after {
 .hero-center {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  justify-self: start;
-  width: min(100%, 1040px);
-  padding-top: 18px;
+  gap: 26px;
+  justify-self: center;
+  width: min(100%, 1380px);
 }
 
 .hero-intro,
 .hero-footer {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-end;
   gap: 20px;
   flex-wrap: wrap;
@@ -163,66 +165,111 @@ body::after {
 
 .hero-title {
   margin: 0;
-  font-size: clamp(6.55rem, 16.6vw, 14.4rem);
-  line-height: 0.73;
-  letter-spacing: -0.092em;
+  font-size: clamp(6rem, 15.8vw, 13.6rem);
+  line-height: 0.77;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
   font-weight: 900;
+  width: fit-content;
+  user-select: none;
 }
 
 .title-line {
   display: flex;
   align-items: flex-end;
-  gap: 0;
+  gap: 0.01em;
   flex-wrap: nowrap;
+  width: fit-content;
 }
 
 .title-line-offset {
-  padding-left: clamp(3.4rem, 3.8vw, 4rem);
-  margin-top: -0.145em;
+  padding-left: clamp(6rem, 6.6vw, 7rem);
+  margin-top: -0.1em;
 }
 
 .letter-block {
   display: inline-block;
   position: relative;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(6rem, 15.8vw, 13.6rem);
+  letter-spacing: -0.055em;
   color: transparent;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.06);
   background-clip: text;
   -webkit-background-clip: text;
-  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.18));
+  filter: drop-shadow(4px 6px 0 rgba(0, 0, 0, 0.16)) drop-shadow(0 16px 24px rgba(0, 0, 0, 0.2));
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: wordmark-rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.letter-block:hover {
+  transform: translateY(-5px) scale(1.02);
 }
 
 .letter-block::after {
-  content: attr(data-shadow);
-  position: absolute;
-  left: 0.06em;
-  top: 0.082em;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  color: rgba(0, 0, 0, 0.24);
-  -webkit-text-stroke: 0 transparent;
+  content: none;
 }
 
-.blue {
-  background-image: linear-gradient(180deg, #67c4ff 0%, #35b5ff 48%, #4d7cff 100%);
-  margin-right: -0.012em;
+.fill-blue {
+  background-image: linear-gradient(180deg, #7fb3f5, #4a7fe0);
 }
 
-.lime {
-  background-image: linear-gradient(180deg, #5ae58f 0%, #30d158 55%, #20b44a 100%);
-  margin-left: -0.012em;
+.fill-green {
+  background-image: linear-gradient(180deg, #8fe3b8, #4bbd88);
 }
 
-.yellow {
-  background-image: linear-gradient(180deg, #ffd94a 0%, #f4bf00 100%);
-  margin-right: -0.038em;
+.fill-yellow {
+  background-image: linear-gradient(180deg, #ffe27a, #e6b93a);
 }
 
-.pink {
-  background-image: linear-gradient(180deg, #ff82c5 0%, #ff2f98 100%);
-  margin-left: -0.012em;
+.fill-pink {
+  background-image: linear-gradient(180deg, #ff9ec7, #e0508e);
+}
+
+.title-line .letter-block:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.title-line .letter-block:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.title-line .letter-block:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.title-line-offset .letter-block:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.title-line-offset .letter-block:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.title-line-offset .letter-block:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.title-line-offset .letter-block:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+.title-line-offset .letter-block:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.title-line-offset .letter-block:nth-child(6) {
+  animation-delay: 0.45s;
+}
+
+@keyframes wordmark-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-quote {
@@ -234,26 +281,15 @@ body::after {
 }
 
 .hero-intro {
-  justify-content: flex-start;
-  margin-left: 0.15rem;
+  justify-content: space-between;
 }
 
 .hero-chip {
-  font-size: 0.72rem;
-  padding: 7px 12px;
+  padding: 8px 12px;
 }
 
 .hero-footer {
-  justify-content: flex-start;
-  margin-top: 8px;
-}
-
-.blue {
-  margin-right: -0.01em;
-}
-
-.yellow {
-  margin-right: -0.025em;
+  justify-content: space-between;
 }
 
 .hero-tags span {
@@ -1082,11 +1118,20 @@ body::after {
 
   .hero-title {
     font-size: clamp(4rem, 24vw, 6.6rem);
+    line-height: 0.82;
   }
 
   .title-line-offset {
     padding-left: 0;
     margin-top: 0;
+  }
+
+  .title-line {
+    flex-wrap: wrap;
+  }
+
+  .letter-block {
+    font-size: clamp(4rem, 24vw, 6.6rem);
   }
 
   .side-note,
