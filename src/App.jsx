@@ -27,12 +27,12 @@ const educations = [
 ];
 
 const trainings = [
-  ["SK AX", "SKALA (SK AI Leader Academy)", "2025. 07 ~ 2025. 12"],
   [
     "한국소프트웨어기술진흥협회",
     "생성형 AI를 활용한 Full-stack 개발 과정",
     "2026. 02 ~ 2026. 07",
   ],
+  ["SK AX", "SKALA (SK AI Leader Academy)", "2025. 07 ~ 2025. 12"],
 ];
 
 const projects = [
@@ -1518,10 +1518,7 @@ function App() {
                   <figcaption>Vue.js</figcaption>
                 </figure>
                 <figure>
-                  <img
-                    src="/images/projects/tailwind.png"
-                    alt="Tailwind CSS"
-                  />
+                  <img src="/images/projects/tailwind.png" alt="Tailwind CSS" />
                   <figcaption>Tailwind CSS</figcaption>
                 </figure>
               </div>
@@ -1662,7 +1659,7 @@ function App() {
                 <div
                   className="project-accordion-panel"
                   id={`project-panel-${project.slug}`}
-                  hidden={!isExpanded}
+                  aria-hidden={!isExpanded}
                 >
                   <div
                     className={`project-accordion-content${project.thumbnail ? " has-image" : ""}`}

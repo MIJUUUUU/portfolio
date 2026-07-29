@@ -251,12 +251,42 @@
 }
 
 .project-accordion-panel {
-  padding: 0 30px 30px;
+  display: grid;
+  grid-template-rows: 0fr;
+  padding: 0 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 240ms ease,
+    visibility 0s linear 420ms;
+}
+
+.project-accordion-item.is-expanded .project-accordion-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    grid-template-rows 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease 80ms,
+    visibility 0s linear 0s;
 }
 
 .project-accordion-content {
+  min-height: 0;
+  overflow: hidden;
+  margin-bottom: 0;
   padding-top: 28px;
   border-top: 1px solid rgba(18, 18, 18, 0.11);
+  transform: translateY(-8px);
+  transition:
+    margin-bottom 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 320ms ease;
+}
+
+.project-accordion-item.is-expanded .project-accordion-content {
+  margin-bottom: 30px;
+  transform: translateY(0);
 }
 
 .project-accordion-content.has-image {
@@ -771,7 +801,11 @@
   }
 
   .project-accordion-panel {
-    padding: 0 20px 20px;
+    padding: 0 20px;
+  }
+
+  .project-accordion-item.is-expanded .project-accordion-content {
+    margin-bottom: 20px;
   }
 
   .project-accordion-columns,
