@@ -1500,7 +1500,7 @@ function App() {
         </div>
 
         <section className="detail-block profile-main-skills">
-          <p className="profile-kicker">Toolbox</p>
+          <p className="profile-kicker">SKILLS</p>
           <h3>Main Skills</h3>
           <div className="skills-groups">
             <section className="skills-group">
@@ -1626,7 +1626,11 @@ function App() {
 
             return (
               <article
-                className={`project-accordion-item${isExpanded ? " is-expanded" : ""}`}
+                className={`project-accordion-item${
+                  project.pinned || project.badge || project.organization
+                    ? " has-project-badges"
+                    : ""
+                }${isExpanded ? " is-expanded" : ""}`}
                 key={project.slug}
               >
                 <button
