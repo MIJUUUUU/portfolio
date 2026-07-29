@@ -26,6 +26,15 @@ const educations = [
   ["성광여자고등학교 졸업", "2022. 02"],
 ];
 
+const trainings = [
+  ["SK AX", "SKALA (SK AI Leader Academy)", "2025. 07 ~ 2025. 12"],
+  [
+    "한국소프트웨어기술진흥협회",
+    "생성형 AI를 활용한 Full-stack 개발 과정",
+    "2026. 02 ~ 2026. 07",
+  ],
+];
+
 const projects = [
   {
     slug: "attendance-anomaly-detection",
@@ -34,7 +43,7 @@ const projects = [
     badge: "대표 프로젝트",
     featured: true,
     pinned: true,
-    meta: ["2025.11", "AI", "Backend", "Data Integration"],
+    meta: ["2025.11 ~ 2025.12", "AI", "Backend", "Data Integration"],
     description:
       "HR·출입·VDI 등 분산된 근태 데이터를 통합하고, 반복적인 이상 행동 패턴을 신속하게 분석할 수 있는 AI 기반 대시보드를 구축했습니다.",
     tags: ["#SpringBoot", "#FastAPI", "#AnomalyDetection", "#4Tier"],
@@ -134,7 +143,7 @@ const projects = [
     title: "AI 면접 훈련 서비스",
     englishTitle: "Personalized AI Interview Training Service",
     featured: true,
-    meta: ["2026.04", "Generative AI", "STT/TTS", "Data Analysis"],
+    meta: ["2026.04 ~ 2026.06", "Generative AI", "STT/TTS", "Data Analysis"],
     thumbnail: "/images/projects/리터뷰.png",
     thumbnailFit: "contain",
     description:
@@ -271,7 +280,7 @@ const projects = [
     title: "화성시 도시데이터 공모전",
     englishTitle: "Hwaseong Urban Data Analysis",
     badge: "데이터 분석",
-    meta: ["2025", "Urban Data", "NDVI", "Visualization"],
+    meta: ["2025.03 ~ 2025.05", "Urban Data", "NDVI", "Visualization"],
     thumbnail: "/images/projects/화성도시데이터.png",
     thumbnailFit: "contain",
     description:
@@ -1283,7 +1292,9 @@ function App() {
 
         <section className="hero-center">
           <div className="hero-intro">
-            <span className="hero-chip">Selected Projects</span>
+            <a className="hero-chip hero-chip-link" href="#selected-projects">
+              Selected Projects
+            </a>
             <span className="hero-chip">AI Service Developer</span>
           </div>
 
@@ -1453,14 +1464,36 @@ function App() {
 
             <section className="detail-block profile-flow-panel" data-step="03">
               <p className="profile-kicker">Background</p>
-              <h3>Education</h3>
-              <div className="timeline-list">
-                {educations.map(([title, date]) => (
-                  <div className="timeline-row" key={`${title}-${date}`}>
-                    <p>{title}</p>
-                    <span>{date}</span>
-                  </div>
-                ))}
+              <h3>Education &amp; Training</h3>
+
+              <div className="background-group">
+                <h4>Education</h4>
+                <div className="timeline-list">
+                  {educations.map(([title, date]) => (
+                    <div className="timeline-row" key={`${title}-${date}`}>
+                      <p>{title}</p>
+                      <span>{date}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="background-group">
+                <h4>Training</h4>
+                <div className="timeline-list">
+                  {trainings.map(([organization, course, date]) => (
+                    <div
+                      className="timeline-row training-row"
+                      key={`${organization}-${course}-${date}`}
+                    >
+                      <p className="training-title">
+                        <strong>{organization}</strong>
+                        <small>{course}</small>
+                      </p>
+                      <span>{date}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
           </div>
@@ -1483,6 +1516,13 @@ function App() {
                 <figure>
                   <img src="/images/projects/vue.png" alt="Vue.js" />
                   <figcaption>Vue.js</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="/images/projects/tailwind.png"
+                    alt="Tailwind CSS"
+                  />
+                  <figcaption>Tailwind CSS</figcaption>
                 </figure>
               </div>
             </section>
@@ -1564,7 +1604,7 @@ function App() {
         </div>
       </section>
 
-      <section className="projects-section">
+      <section className="projects-section" id="selected-projects">
         <div className="section-divider" aria-hidden="true"></div>
 
         <div className="projects-header">
@@ -1633,12 +1673,12 @@ function App() {
                       </p>
 
                       <section className="project-accordion-problem">
-                        <strong>문제의식</strong>
-                        <ul>
+                        <strong>Problem / Why</strong>
+                        <ol>
                           {project.problem.slice(0, 2).map((item) => (
                             <li key={item}>{item}</li>
                           ))}
-                        </ul>
+                        </ol>
                       </section>
 
                       <div className="project-accordion-columns">
