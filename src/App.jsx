@@ -1387,11 +1387,11 @@ function App() {
                 <dt>Blog</dt>
                 <dd>
                   <a
-                    href="https://study-juju.tistory.com/"
+                    href="https://mjlog.tistory.com/"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    study-juju.tistory.com
+                    mjlog.tistory.com
                   </a>
                 </dd>
               </div>
