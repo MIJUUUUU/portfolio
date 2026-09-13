@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ProjectStory from "./ProjectStory";
 
 const experiences = [
   // ["리포트 기반 AI 면접 훈련 서비스 개발", "2026. 04"],
@@ -43,18 +44,18 @@ const projects = [
     badge: "대표 프로젝트",
     featured: true,
     pinned: true,
-    meta: ["2025.11 ~ 2025.12", "AI", "Backend", "Data Integration"],
+    meta: ["2025.11 ~ 2025.12", "AI · Data", "Frontend", "Backend"],
     description:
       "HR·출입·VDI 등 분산된 근태 데이터를 통합하고, 반복적인 이상 행동 패턴을 신속하게 분석할 수 있는 AI 기반 대시보드를 구축했습니다.",
-    tags: ["#SpringBoot", "#FastAPI", "#AnomalyDetection", "#4Tier"],
+    tags: ["#Vue3", "#SpringBoot", "#FastAPI", "#AnomalyDetection"],
     thumbnail: "/images/projects/근태.png",
     thumbnailFit: "contain",
     overview:
-      "반복 오탐지와 운영 부담이 큰 근태 관리 환경에서, 분산 데이터를 통합하고 Rule-Based와 AI 탐지를 결합해 장기·반복 패턴까지 식별할 수 있는 시스템을 목표로 했습니다.",
+      "SK AX 윤리경영2팀의 요구를 바탕으로, 수천 명의 근태 기록에서 수작업으로 찾기 어려운 통계적 이상치와 숨은 패턴을 AI로 자동 탐지하는 시스템을 목표로 했습니다. 담당자가 판단한 실제 문제와 오탐을 피드백·태깅으로 축적하고, 이를 학습에 반영해 탐지 정확도를 지속적으로 개선하고자 했습니다.",
     problem: [
-      "근태 데이터가 HR, 출입, VDI, 비용정산 등 여러 시스템에 분산되어 있었습니다.",
-      "단순 지각·조퇴 같은 규칙 기반 탐지는 가능하지만 복합 패턴과 새로운 이상 유형은 잡기 어려웠습니다.",
-      "운영자의 정상 처리 피드백이 재반영되지 않아 동일한 오탐이 반복됐습니다.",
+      "수천 명의 근태 데이터를 수작업으로 검토하면서 통계적 이상치와 숨은 패턴을 찾기 어려웠습니다.",
+      "지각·조퇴처럼 명시적인 위반 외에도 사람이 미처 예상하지 못한 이상 징후를 탐지할 필요가 있었습니다.",
+      "담당자가 실제 문제인지 오탐인지 판단한 결과를 시스템이 학습하는 피드백 루프가 부족했습니다.",
     ],
     architecture: [
       "Data → Processing → Detection → Analysis의 4-Tier 구조로 흐름을 분리했습니다.",
@@ -62,9 +63,9 @@ const projects = [
       "FastAPI 기반 AI 서버에서 분류·탐지 추론을 수행하고 PostgreSQL과 연동합니다.",
     ],
     implementation: [
-      "SK AX 윤리경영팀 인터뷰를 바탕으로 근태관리 Pain Point와 요구사항을 분석했습니다.",
-      "PostgreSQL 기반 통합 데이터 구조와 사번·날짜 기준 ERD를 설계했습니다.",
-      "AIOps 기반 이상 패턴 탐지 결과를 한 화면에서 확인하는 통합 대시보드를 구축했습니다.",
+      "데이터 수집·EDA·전처리와 이상 탐지 모델 개발·평가에 공동 참여했습니다.",
+      "엑셀 업로드·DB 처리와 기본 규칙 기반 탐지 엔진을 공동 개발했습니다.",
+      "Vue 기반 화면 구현·API 연동·반응형 UI와 사용자 매뉴얼을 담당했습니다.",
     ],
     results: [
       "여러 시스템에 흩어진 근태 기록을 하나의 화면에서 통합 조회할 수 있게 했습니다.",
@@ -1246,8 +1247,7 @@ function ProjectDetail({ project, onBack }) {
   );
 }
 
-function App() {
-  const [expandedProjects, setExpandedProjects] = useState([]);
+function PortfolioHome() {
 
   useEffect(() => {
     const animatedItems = document.querySelectorAll(
@@ -1276,9 +1276,6 @@ function App() {
     return () => reveal.disconnect();
   }, []);
 
-  const toggleProject = (slug) => {
-    setExpandedProjects((current) => (current.includes(slug) ? [] : [slug]));
-  };
 
   return (
     <div className="page-shell">
@@ -1620,7 +1617,6 @@ function App() {
 
         <div className="project-accordion">
           {projectsByLatest.map((project) => {
-            const isExpanded = expandedProjects.includes(project.slug);
 
             return (
               <article
@@ -1628,15 +1624,12 @@ function App() {
                   project.pinned || project.badge || project.organization
                     ? " has-project-badges"
                     : ""
-                }${isExpanded ? " is-expanded" : ""}`}
+                }`}
                 key={project.slug}
               >
-                <button
+                <a
                   className="project-accordion-trigger"
-                  type="button"
-                  aria-expanded={isExpanded}
-                  aria-controls={`project-panel-${project.slug}`}
-                  onClick={() => toggleProject(project.slug)}
+                  href={`#/projects/${project.slug}`}
                 >
                   <div className="project-accordion-title">
                     <div>
@@ -1655,77 +1648,56 @@ function App() {
                     <span>{project.meta[0]}</span>
                     <span>{project.meta.slice(1, 3).join(" · ")}</span>
                   </div>
-                  <i aria-hidden="true">{isExpanded ? "−" : "+"}</i>
-                </button>
-
-                <div
-                  className="project-accordion-panel"
-                  id={`project-panel-${project.slug}`}
-                  aria-hidden={!isExpanded}
-                >
-                  <div
-                    className={`project-accordion-content${project.thumbnail ? " has-image" : ""}`}
-                  >
-                    <div className="project-accordion-copy">
-                      <p className="project-accordion-description">
-                        {project.description}
-                      </p>
-
-                      <section className="project-accordion-problem">
-                        <strong>Problem / Why</strong>
-                        <ol>
-                          {project.problem.slice(0, 2).map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ol>
-                      </section>
-
-                      <div className="project-accordion-columns">
-                        <section>
-                          <strong>역할</strong>
-                          <ul>
-                            {project.implementation.slice(0, 3).map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                        </section>
-                        <section>
-                          <strong>결과</strong>
-                          <ul>
-                            {project.results.slice(0, 2).map((item) => (
-                              <li key={item}>{item}</li>
-                            ))}
-                          </ul>
-                        </section>
-                      </div>
-
-                      <div className="project-accordion-footer">
-                        <div className="project-accordion-tech">
-                          {project.meta.slice(1).map((item) => (
-                            <span key={item}>{item}</span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {project.thumbnail && (
-                      <figure
-                        className={`project-accordion-image${project.thumbnailFit === "contain" ? " is-contain" : ""}${project.thumbnailCrop === "bottom" ? " is-bottom-crop" : ""}`}
-                      >
-                        <img
-                          src={project.thumbnail}
-                          alt={`${project.title} 프로젝트 대표 화면`}
-                        />
-                      </figure>
-                    )}
-                  </div>
-                </div>
+                  <i aria-hidden="true">↗</i>
+                </a>
               </article>
             );
           })}
         </div>
       </section>
     </div>
+  );
+}
+
+function App() {
+  const [route, setRoute] = useState(() => window.location.hash);
+  const selectedProject = projects.find(project => route === `#/projects/${project.slug}`);
+
+  useEffect(() => {
+    const navigate = () => setRoute(window.location.hash);
+    window.addEventListener("hashchange", navigate);
+    return () => window.removeEventListener("hashchange", navigate);
+  }, []);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.title = `${selectedProject.title} | 이미주 포트폴리오`;
+      window.scrollTo(0, 0);
+      document.getElementById("project-page-title")?.focus({ preventScroll: true });
+    } else {
+      document.title = "이미주 포트폴리오";
+      if (route === "#selected-projects") {
+        document.getElementById("selected-projects")?.scrollIntoView();
+      }
+    }
+  }, [route, selectedProject]);
+
+  if (!selectedProject) return <PortfolioHome />;
+
+  return (
+    <main className="project-reading-page" key={selectedProject.slug}>
+      <nav className="project-reading-nav" aria-label="프로젝트 탐색">
+        <a href="#selected-projects">← 프로젝트 목록</a>
+        <span>MIJU / SELECTED PROJECTS</span>
+      </nav>
+      <header className="project-reading-header">
+        <p className="story-eyebrow">{selectedProject.englishTitle}</p>
+        <h1 id="project-page-title" tabIndex={-1}>{selectedProject.title}</h1>
+        <p>{selectedProject.meta.join(" · ")}</p>
+      </header>
+      <ProjectStory project={selectedProject} />
+      <footer className="project-reading-footer"><a href="#selected-projects">← 다른 프로젝트 보기</a></footer>
+    </main>
   );
 }
 
