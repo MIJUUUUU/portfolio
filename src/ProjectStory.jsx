@@ -1,4 +1,6 @@
 import React from "react";
+import AllinkProjectStory from "./AllinkProjectStory";
+import ReterviewProjectStory from "./ReterviewProjectStory";
 import EmgProjectStory from "./EmgProjectStory";
 
 function ProjectDiagram({ src, title, children, fullWidth = false }) {
@@ -183,6 +185,8 @@ function AttendanceStory({ project }) {
 }
 
 export default function ProjectStory({ project }) {
+  if (project.slug === "allink-ai-workspace") return <AllinkProjectStory project={project} />;
+  if (project.slug === "ai-interview-training") return <ReterviewProjectStory project={project} />;
   if (project.slug === "emg-gait-analysis") return <EmgProjectStory project={project} />;
   if (project.slug === "attendance-anomaly-detection") return <AttendanceStory project={project} />;
   const sections = [
