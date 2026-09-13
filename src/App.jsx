@@ -1648,7 +1648,7 @@ function PortfolioHome() {
                     <span>{project.meta[0]}</span>
                     <span>{project.meta.slice(1, 3).join(" · ")}</span>
                   </div>
-                  <i aria-hidden="true">↗</i>
+                  <i className="project-toggle-symbol" aria-hidden="true" />
                 </a>
               </article>
             );

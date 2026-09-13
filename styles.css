@@ -4110,9 +4110,9 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
 .project-record > .record-section > h5 > span { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex-shrink: 0; background: #354b40; color: #fff; border-radius: 8px; font-size: 12px; }
 .record-tech-panel { padding: 26px; margin-top: 28px; background: #f2f4f0; border: 1px solid #e0e5dc; border-radius: 12px; }
 .record-tech-panel > h6 { margin: 0 0 22px; font-size: 18px; }
-.record-purpose-summary { padding: 28px; background: #eef3ed; border-left: 3px solid #648571; border-radius: 0 12px 12px 0; }
+.record-purpose-summary { padding: 28px; background: linear-gradient(105deg, #eef0fa 0%, #f7f6f9 55%, #fafaf8 100%); border-top: 1px solid #d8d9df; border-bottom: 1px solid #d8d9df; border-left: 0; border-radius: 0; }
 .record-purpose-summary h6 { font-size: clamp(22px, 2.4vw, 30px); line-height: 1.5; margin: 16px 0; letter-spacing: -.035em; }
-.record-purpose-summary > p { max-width: 800px; margin: 0; font-size: 15px; line-height: 1.9; color: #526050; word-break: keep-all; }
+.record-purpose-summary > p { max-width: 800px; margin: 0; font-size: 15px; line-height: 1.9; color: #626267; word-break: keep-all; }
 .record-requirements { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; list-style: none; padding: 0; margin: 0; }
 .record-requirements li { display: flex; gap: 16px; padding: 20px; border: 1px solid #e0e4dc; border-radius: 10px; background: #fff; }
 .record-requirements li > span { color: #68816c; font-size: 12px; padding-top: 3px; }
@@ -4125,3 +4125,8 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
   .record-tech-panel, .record-purpose-summary { padding: 18px; }
   .record-requirements { grid-template-columns: 1fr; }
 }
+
+.project-toggle-symbol::before { content: "+"; }
+.project-accordion-trigger:active .project-toggle-symbol::before { content: "−"; }
+
+.record-purpose-summary > .story-eyebrow { color: #79797e; }
