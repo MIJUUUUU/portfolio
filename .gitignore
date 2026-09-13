@@ -1,4 +1,10 @@
 node_modules/
 dist/
 *.pdf
-*.pdf
+.DS_Store
+
+# Standalone workspace, not part of the portfolio app
+/allink-collaboration-workspace/
+
+# Unused recordings replaced by dashboard images
+/public/videos/
