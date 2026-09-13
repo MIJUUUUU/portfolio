@@ -4143,3 +4143,18 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
 @media (max-width: 700px) {
   .emg-metrics { grid-template-columns: 1fr; gap: 12px; }
 }
+
+.emg-rms-results { margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid #dfe2d8; }
+.emg-rms-results > h6 { margin-top: 0; font-size: 20px; }
+.emg-rms-table-wrap { margin-top: 24px; overflow-x: auto; }
+.emg-rms-table { min-width: 490px; font-variant-numeric: tabular-nums; }
+.emg-rms-table caption { text-align: left; padding: 0 0 14px; color: #465777; font-size: 15px; font-weight: 600; }
+.emg-rms-table td { white-space: nowrap; }
+.emg-rms-table thead { background: #eef0f7; color: #4e5870; }
+
+.emg-paper-tables { display: grid; gap: 24px; margin-top: 24px; }
+.emg-paper-tables figure { margin: 0; padding: 16px; background: #fff; border: 1px solid #e0e2e8; border-radius: 10px; }
+.emg-paper-tables a { display: block; cursor: zoom-in; }
+.emg-paper-tables img { width: 100%; height: auto; display: block; }
+.emg-paper-tables figcaption { margin-top: 14px; color: #6b7080; font-size: 12px; }
+.emg-paper-tables .emg-statistics-image { width: min(100%, 560px); box-sizing: border-box; justify-self: center; }

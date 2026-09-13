@@ -51,6 +51,26 @@ export default function EmgProjectStory({ project }) {
 
     <section className="record-section">
       <h5><span>05</span>연구 결과</h5>
+      <div className="emg-rms-results">
+        <h6>근육별 RMS 비교</h6>
+        <p className="record-context">접지 시점 기준으로 근육 활성도를 비교했습니다. 값은 평균 ± 표준편차이며, p-value는 피험자별 두 조건의 평균을 비교한 대응표본 t-검정 결과입니다.</p>
+        <div className="emg-paper-tables">
+          {[
+            ["rms-right.png", "논문 표 1 · 오른발 접지 기준 근육별 RMS 비교"],
+            ["rms-left.png", "논문 표 2 · 왼발 접지 기준 근육별 RMS 비교"],
+            ["rms-statistics.png", "논문 표 3 · 근육별 대응표본 t-검정 결과"],
+          ].map(([file, title]) => (
+            <figure key={file} className={file === "rms-statistics.png" ? "emg-statistics-image" : ""}>
+              <a href={`/images/projects/emg/${file}`} target="_blank" rel="noreferrer" aria-label={`${title} 크게 보기`}>
+                <img src={`/images/projects/emg/${file}`} alt={title} loading="lazy" />
+              </a>
+              <figcaption>{title} · 클릭하여 크게 보기 ↗</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="emg-source">논문 표 1–3 · 모든 비교에서 p &gt; 0.05로, 평균 RMS의 통계적으로 유의한 차이는 확인되지 않았습니다.</p>
+      </div>
+      <h6>Random Forest 분류 결과</h6>
       <div className="emg-metrics">
         <div><strong>95.0<span>%</span></strong><p>테스트 정확도 · 논문 보고값</p></div>
         <div><strong>0.95</strong><p>정밀도 · 재현율 · F1-score</p></div>
