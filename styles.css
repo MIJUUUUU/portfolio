@@ -4130,3 +4130,16 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
 .project-accordion-trigger:active .project-toggle-symbol::before { content: "−"; }
 
 .record-purpose-summary > .story-eyebrow { color: #79797e; }
+
+.emg-figure > a { display: flex; justify-content: center; }
+.emg-figure img { max-height: 460px; object-fit: contain; }
+.emg-record .record-facts a, .emg-source a { color: #4c5a80; text-underline-offset: 4px; }
+.emg-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 36px; }
+.emg-metrics > div { padding: 24px 16px; border-top: 2px solid #7e8aaa; background: #f3f4f9; }
+.emg-metrics strong { display: block; color: #35496b; font-size: clamp(28px, 3.5vw, 44px); letter-spacing: -.04em; }
+.emg-metrics strong span { font-size: 22px; }
+.emg-metrics p, .emg-source { color: #6b7080; font-size: 12px; line-height: 1.8; }
+.emg-source { margin: 28px 0 0; }
+@media (max-width: 700px) {
+  .emg-metrics { grid-template-columns: 1fr; gap: 12px; }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import EmgProjectStory from "./EmgProjectStory";
 
 function ProjectDiagram({ src, title, children, fullWidth = false }) {
   return (
@@ -182,6 +183,7 @@ function AttendanceStory({ project }) {
 }
 
 export default function ProjectStory({ project }) {
+  if (project.slug === "emg-gait-analysis") return <EmgProjectStory project={project} />;
   if (project.slug === "attendance-anomaly-detection") return <AttendanceStory project={project} />;
   const sections = [
     ["01", "PROBLEM", "어떤 문제에서 시작했나요?", project.problem],
