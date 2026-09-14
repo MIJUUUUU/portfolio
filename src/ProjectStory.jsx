@@ -1,3 +1,4 @@
+import InsuranceProjectStory from "./InsuranceProjectStory";
 import SkagProjectStory from "./SkagProjectStory";
 import DefectProjectStory from "./DefectProjectStory";
 import React from "react";
@@ -188,6 +189,7 @@ function AttendanceStory({ project }) {
 }
 
 export default function ProjectStory({ project }) {
+  if (project.slug === "insurance-rag-chatbot") return <InsuranceProjectStory project={project} />;
   if (project.slug === "smart-manufacturing-rag") return <SkagProjectStory project={project} />;
   if (project.slug === "manufacturing-defect-analysis") return <DefectProjectStory project={project} />;
   if (project.slug === "english-conversation-agent") return <AnyverseProjectStory project={project} />;

@@ -4200,3 +4200,7 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
 .skag-record .record-diagram figcaption h6 { font-size: 24px; margin: 14px 0; line-height: 1.5; letter-spacing: -.035em; }
 .skag-record .skag-architecture > a { max-width: 640px; margin-inline: auto; }
 .skag-record .skag-architecture img { max-height: 480px; width: 100%; object-fit: contain; }
+
+.insurance-record .record-diagram figcaption h6 { font-size: 24px; margin: 14px 0; line-height: 1.5; letter-spacing: -.035em; }
+.insurance-record .insurance-architecture > a { max-width: 720px; margin-inline: auto; }
+.insurance-record .insurance-architecture img { max-height: 480px; width: 100%; object-fit: contain; }
