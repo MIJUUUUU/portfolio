@@ -4181,3 +4181,18 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
   .allink-system { padding: 14px; }
   .allink-system-branches { grid-template-columns: 1fr; }
 }
+
+.anyverse-record .record-diagram figcaption h6 { font-size: 24px; margin: 14px 0; line-height: 1.5; letter-spacing: -.035em; }
+
+.anyverse-record .anyverse-architecture > a { max-width: 720px; margin-inline: auto; }
+.anyverse-record .anyverse-architecture img { max-height: 480px; width: 100%; object-fit: contain; }
+
+.defect-record .record-diagram figcaption h6 { font-size: 24px; margin: 14px 0; line-height: 1.5; letter-spacing: -.035em; }
+.defect-table-scroll { overflow-x: auto; margin: 24px 0; border: 1px solid #dfe2d8; border-radius: 12px; }
+.defect-table-scroll:focus-visible { outline: 2px solid #6254a3; outline-offset: 4px; }
+.defect-model-table { width: 100%; min-width: 580px; border-collapse: collapse; font-size: 14px; line-height: 1.6; }
+.defect-model-table caption { text-align: left; padding: 16px 20px; color: #65656f; background: #f4f3f8; }
+.defect-model-table th, .defect-model-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #e3e2e8; }
+.defect-model-table thead { background: #efedf7; }
+.defect-model-table tbody th { font-weight: 500; }
+.defect-model-table tbody tr:last-child > * { border-bottom: 0; }

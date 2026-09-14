@@ -1,4 +1,6 @@
+import DefectProjectStory from "./DefectProjectStory";
 import React from "react";
+import AnyverseProjectStory from "./AnyverseProjectStory";
 import AllinkProjectStory from "./AllinkProjectStory";
 import ReterviewProjectStory from "./ReterviewProjectStory";
 import EmgProjectStory from "./EmgProjectStory";
@@ -185,6 +187,8 @@ function AttendanceStory({ project }) {
 }
 
 export default function ProjectStory({ project }) {
+  if (project.slug === "manufacturing-defect-analysis") return <DefectProjectStory project={project} />;
+  if (project.slug === "english-conversation-agent") return <AnyverseProjectStory project={project} />;
   if (project.slug === "allink-ai-workspace") return <AllinkProjectStory project={project} />;
   if (project.slug === "ai-interview-training") return <ReterviewProjectStory project={project} />;
   if (project.slug === "emg-gait-analysis") return <EmgProjectStory project={project} />;
