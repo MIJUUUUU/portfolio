@@ -1,3 +1,4 @@
+import SkagProjectStory from "./SkagProjectStory";
 import DefectProjectStory from "./DefectProjectStory";
 import React from "react";
 import AnyverseProjectStory from "./AnyverseProjectStory";
@@ -187,6 +188,7 @@ function AttendanceStory({ project }) {
 }
 
 export default function ProjectStory({ project }) {
+  if (project.slug === "smart-manufacturing-rag") return <SkagProjectStory project={project} />;
   if (project.slug === "manufacturing-defect-analysis") return <DefectProjectStory project={project} />;
   if (project.slug === "english-conversation-agent") return <AnyverseProjectStory project={project} />;
   if (project.slug === "allink-ai-workspace") return <AllinkProjectStory project={project} />;
