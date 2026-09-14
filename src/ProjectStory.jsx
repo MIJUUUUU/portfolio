@@ -1,3 +1,4 @@
+import HwaseongProjectStory from "./HwaseongProjectStory";
 import InsuranceProjectStory from "./InsuranceProjectStory";
 import SkagProjectStory from "./SkagProjectStory";
 import DefectProjectStory from "./DefectProjectStory";
@@ -189,6 +190,7 @@ function AttendanceStory({ project }) {
 }
 
 export default function ProjectStory({ project }) {
+  if (project.slug === "hwaseong-urban-data-analysis") return <HwaseongProjectStory project={project} />;
   if (project.slug === "insurance-rag-chatbot") return <InsuranceProjectStory project={project} />;
   if (project.slug === "smart-manufacturing-rag") return <SkagProjectStory project={project} />;
   if (project.slug === "manufacturing-defect-analysis") return <DefectProjectStory project={project} />;

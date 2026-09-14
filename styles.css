@@ -4204,3 +4204,7 @@ a.project-accordion-trigger:focus-visible { outline: 2px solid #526645; outline-
 .insurance-record .record-diagram figcaption h6 { font-size: 24px; margin: 14px 0; line-height: 1.5; letter-spacing: -.035em; }
 .insurance-record .insurance-architecture > a { max-width: 720px; margin-inline: auto; }
 .insurance-record .insurance-architecture img { max-height: 480px; width: 100%; object-fit: contain; }
+
+.urban-record .record-diagram figcaption h6 { font-size: 24px; margin: 14px 0; line-height: 1.5; letter-spacing: -.035em; }
+.urban-record .urban-full > a { max-width: 640px; margin-inline: auto; }
+.urban-record .urban-full img { max-height: 560px; width: 100%; object-fit: contain; }
