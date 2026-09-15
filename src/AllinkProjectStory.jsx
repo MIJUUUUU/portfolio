@@ -42,7 +42,7 @@ export default function AllinkProjectStory({ project }) {
       {[
         ["landing.jpg", "01 / WORKSPACE", "팀의 작업을 시작하는 공간", "홈 화면에서 워크스페이스를 만들고 목록을 확인합니다. 공유 링크를 통해 팀원이 같은 작업 공간에 참여할 수 있습니다."],
         ["workspace.jpg", "02 / CANVAS", "화이트보드와 AI를 한 화면에", "텍스트·이미지·도형·자유 드로잉으로 아이디어를 정리하면서, 오른쪽 AI 패널에서 업로드 문서를 바탕으로 질문합니다."],
-        ["collaboration.png", "03 / COLLABORATION", "말하면서 함께 편집하는 공간", "마이크를 연결해 팀원과 실시간으로 대화하면서 같은 화이트보드를 함께 편집할 수 있습니다. 실시간 커서로 작업 위치를 확인하고 AI 응답을 캔버스 콘텐츠로 연결합니다."],
+        ["collaboration.png", "03 / AI ARCHITECTURE", "보드와 문서에서 아키텍처로", "보드에 정리한 내용이나 업로드한 문서를 바탕으로 AI가 아키텍처 다이어그램을 생성합니다. 템플릿에서 아키텍처를 선택해 구조를 시각화하고, 생성된 결과를 캔버스에 배치해 팀원과 함께 수정할 수 있습니다."],
       ].map(([file, label, title, description]) => <figure className="record-diagram" key={file}>
         <a href={`/images/projects/allink/${file}`} target="_blank" rel="noreferrer" aria-label={`${title} 크게 보기`}><img src={`/images/projects/allink/${file}`} alt={title} loading="lazy" /></a>
         <figcaption><span className="story-eyebrow">{label}</span><h6>{title}</h6><p>{description}</p><a href={`/images/projects/allink/${file}`} target="_blank" rel="noreferrer">화면 크게 보기 ↗</a></figcaption>
